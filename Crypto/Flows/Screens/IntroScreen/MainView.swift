@@ -107,7 +107,7 @@ extension MainView {
                     Spacer()
                 Text("Ethereum")
                     Spacer()
-                    Text("$1,651.64")
+                    Text("$1,651.6")
                             .frame(height: 40)
                               .clipped()
                               .background(Color.black)
