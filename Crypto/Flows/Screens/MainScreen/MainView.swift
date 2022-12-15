@@ -8,16 +8,12 @@
 import SwiftUI
 
 struct MainView: View {
-    init() {
-        UINavigationBar.appearance().backgroundColor = UIColor(Color.bottomButtonColor)
-    }
+    @ObservedObject var viewModel = MainViewModel()
     var body: some View {
         NavigationView {
-            ZStack {
-                VStack {
                     VStack {
-                        
-                        Spacer()
+                        cryptoText
+                       Spacer()
                         List {
                             topCoin
                                 .listRowBackground(Color.mainColor)
@@ -25,10 +21,6 @@ struct MainView: View {
                         .scrollContentBackground(.hidden)
                     }
                     .background(Color.mainColor)
-                    .navigationTitle("Crypto")
-                    .navigationBarTitleDisplayMode(.inline)
-                }
-            }
         }
         
     }
@@ -41,53 +33,32 @@ struct MainView: View {
     
 }
 
-extension MainView {
+private extension MainView {
+    var cryptoText: some View {
+        ZStack {
+            Text("Crypto")
+                .font(.custom("Poppins-Bold", size: 24))
+                .foregroundColor(.white)
+            Spacer()
+        }
+    }
     
     var topCoin: some View {
         VStack {
             VStack(spacing: 10) {
-                //            btcBlock
-                //            ltcBlock
-                //            ethBlock
-                //            btcBlock
-                //            ltcBlock
-                //            ethBlock
-                btcBlock
-                ltcBlock
-                ethBlock
-                btcBlock
-                ltcBlock
-                ethBlock
+                
+                ForEach(viewModel.coinModels, id: \.id) { coinModel in
+                    createButton(imagName: coinModel.icon, text: coinModel.name, number: "$\(coinModel.price)")
+                        .background(Color.bottomButtonColor)
+                        .cornerRadius(15)
+                }
             }
             Spacer()
-            stgBlock
+            settingsBlock
         }
-    }
-    var ltcBlock: some View {
-            VStack {
-                createButton(imagName: Image.ltcIcn, text: "Litecoin", number: "$68.06")
-            }
-            .background(Color.bottomButtonColor)
-            .cornerRadius(15)
-        }
-
     }
     
-    var ethBlock: some View {
-        VStack {
-            createButton(imagName: Image.ethIcn, text: "Ethereum", number: "$1,651.64")
-        }
-        .background(Color.bottomButtonColor.cornerRadius(15))
-    }
-    var btcBlock: some View {
-        VStack {
-            createButton(imagName: Image.btcIcn, text: "Bitcoin", number: "21,188.12")
-        }
-        .background(Color.bottomButtonColor)
-        .cornerRadius(15)
-    }
-    
-    var stgBlock: some View {
+    var settingsBlock: some View {
         HStack {
             Spacer()
             Button(action: {}) {
@@ -107,29 +78,32 @@ extension MainView {
         VStack {
             VStack {
                 Button(action: {}) {
-                        HStack {
-                            imagName
+                    HStack {
+                        imagName
                             .resizable()
-                                .foregroundColor(Color.white)
-                                .frame(width: 30, height: 30)
-                            Text("\(text)")
-                                .font(.system(size: 27))
-                                .foregroundColor(Color.white)
-                                .padding()
-                            Spacer()
-                            Text("\(number)")
-                                .frame(height: 40)
-                                .background(Color.black)
-                                .cornerRadius(10)
-                                .foregroundColor(.white)
+                            .foregroundColor(Color.white)
+                            .frame(width: 30, height: 30)
+                        Text("\(text)")
+                            .font(.custom("Poppins-SemiBold", size: 18))
                             
-                        }
-                        .cornerRadius(15)
-                        .padding([.leading,.trailing],20)
-
+                            .foregroundColor(Color.white)
+                            .padding()
+                        Spacer()
+                        Text("\(number)")
+                            .frame(height: 40)
+                            .font(.custom("Poppins-Medium", size: 16))
+                            .background(Color.mainColor.opacity(0.8))
+                            .cornerRadius(10)
+                            .foregroundColor(.white)
+                        
+                    }
+                    .cornerRadius(15)
+                    .padding([.leading,.trailing],20)
+                    
                 }
             }
         }
     }
+}
 
 
