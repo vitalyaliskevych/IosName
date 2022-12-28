@@ -11,16 +11,16 @@ struct MainView: View {
     @ObservedObject var viewModel = MainViewModel()
     var body: some View {
         NavigationView {
-                    VStack {
-                        titleView
-                       Spacer()
-                        List {
-                            topCoin
-                                .listRowBackground(Color.mainColor)
-                        }
-                        .scrollContentBackground(.hidden)
-                    }
-                    .background(Color.mainColor)
+            VStack {
+                titleView
+                Spacer()
+                List {
+                    topCoin
+                        .listRowBackground(Color.mainColor)
+                }
+                .scrollContentBackground(.hidden)
+            }
+            .background(Color.mainColor)
         }
         
     }
@@ -84,8 +84,6 @@ private extension MainView {
                             .frame(width: 30, height: 30)
                         Text("\(text)")
                             .font(.system(size: 18, weight: .bold))
-
-                            
                             .foregroundColor(Color.white)
                             .padding()
                         Spacer()

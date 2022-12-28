@@ -33,7 +33,7 @@ private extension IntroView {
         VStack(spacing: 10) {
             welcome
             welcome2
-            }
+        }
         .padding(.top, 50)
     }
     var welcome: some View {
@@ -48,15 +48,15 @@ private extension IntroView {
     }
     
     var bottomButton: some View {
-            Button(action: {}) {
-                Text("Let's start")
-                    .foregroundColor(Color.white)
-                    .frame(width: 330, height: 70)
-                    .font(.custom("Poppins-SemiBold", size: 18))
-
+        Button(action: {}) {
+            Text("Let's start")
+                .foregroundColor(Color.white)
+                .frame(width: 330, height: 70)
+                .font(.custom("Poppins-SemiBold", size: 18))
+            
         }
-            .background(Color.bottomButtonColor)
-            .cornerRadius(15)
-            .padding(.bottom, 10)
+        .background(Color.bottomButtonColor)
+        .cornerRadius(15)
+        .padding(.bottom, 10)
     }
 }
