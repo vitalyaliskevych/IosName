@@ -12,7 +12,7 @@ struct MainView: View {
     var body: some View {
         NavigationView {
                     VStack {
-                        cryptoText
+                        titleView
                        Spacer()
                         List {
                             topCoin
@@ -34,10 +34,10 @@ struct MainView: View {
 }
 
 private extension MainView {
-    var cryptoText: some View {
+    var titleView: some View {
         ZStack {
             Text("Crypto")
-                .font(.custom("Poppins-Bold", size: 24))
+                .font(.system(size: 24, weight: .bold))
                 .foregroundColor(.white)
             Spacer()
         }
@@ -48,7 +48,7 @@ private extension MainView {
             VStack(spacing: 10) {
                 
                 ForEach(viewModel.coinModels, id: \.id) { coinModel in
-                    createButton(imagName: coinModel.icon, text: coinModel.name, number: "$\(coinModel.price)")
+                    createButton(imageName: coinModel.icon, text: coinModel.name, number: "$\(coinModel.price)")
                         .background(Color.bottomButtonColor)
                         .cornerRadius(15)
                 }
@@ -67,36 +67,37 @@ private extension MainView {
                 }
                 .foregroundColor(Color.white)
                 .frame(width: 70, height: 70)
-                .font(.system(size: 27))
                 .background(Color.bottomButtonColor)
                 .cornerRadius(15)
                 
             }
         }
     }
-    func createButton(imagName: Image, text: String, number: String) -> some View {
+    func createButton(imageName: Image, text: String, number: String) -> some View {
         VStack {
             VStack {
                 Button(action: {}) {
                     HStack {
-                        imagName
+                        imageName
                             .resizable()
                             .foregroundColor(Color.white)
                             .frame(width: 30, height: 30)
                         Text("\(text)")
-                            .font(.custom("Poppins-SemiBold", size: 18))
+                            .font(.system(size: 18, weight: .bold))
+
                             
                             .foregroundColor(Color.white)
                             .padding()
                         Spacer()
                         Text("\(number)")
                             .frame(height: 40)
-                            .font(.custom("Poppins-Medium", size: 16))
+                            .font(.system(size: 16, weight: .bold))
                             .background(Color.mainColor.opacity(0.8))
                             .cornerRadius(10)
                             .foregroundColor(.white)
                         
                     }
+                    .frame(height: 70)
                     .cornerRadius(15)
                     .padding([.leading,.trailing],20)
                     
