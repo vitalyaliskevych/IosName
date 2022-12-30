@@ -8,27 +8,19 @@
 import SwiftUI
 
 struct MainView: View {
-    init() {
-        UINavigationBar.appearance().backgroundColor = UIColor(Color.bottomButtonColor)
-    }
+    @ObservedObject var viewModel = MainViewModel()
     var body: some View {
         NavigationView {
-            ZStack {
-                VStack {
-                    VStack {
-                        
-                        Spacer()
-                        List {
-                            topCoin
-                                .listRowBackground(Color.mainColor)
-                        }
-                        .scrollContentBackground(.hidden)
-                    }
-                    .background(Color.mainColor)
-                    .navigationTitle("Crypto")
-                    .navigationBarTitleDisplayMode(.inline)
+            VStack {
+                titleView
+                Spacer()
+                List {
+                    coinList
+                        .listRowBackground(Color.mainColor)
                 }
+                .scrollContentBackground(.hidden)
             }
+            .background(Color.mainColor)
         }
         
     }
@@ -41,53 +33,32 @@ struct MainView: View {
     
 }
 
-extension MainView {
+private extension MainView {
+    var titleView: some View {
+        ZStack {
+            Text("Crypto")
+                .font(.system(size: 24, weight: .bold))
+                .foregroundColor(.white)
+            Spacer()
+        }
+    }
     
-    var topCoin: some View {
+    var coinList: some View {
         VStack {
             VStack(spacing: 10) {
-                //            btcBlock
-                //            ltcBlock
-                //            ethBlock
-                //            btcBlock
-                //            ltcBlock
-                //            ethBlock
-                btcBlock
-                ltcBlock
-                ethBlock
-                btcBlock
-                ltcBlock
-                ethBlock
+                
+                ForEach(viewModel.coinModels, id: \.id) { coinModel in
+                    createButton(imageName: coinModel.icon, text: coinModel.name, number: "$\(coinModel.price)")
+                        .background(Color.bottomButtonColor)
+                        .cornerRadius(15)
+                }
             }
             Spacer()
-            stgBlock
+            settingsBlock
         }
-    }
-    var ltcBlock: some View {
-            VStack {
-                createButton(imagName: Image.ltcIcn, text: "Litecoin", number: "$68.06")
-            }
-            .background(Color.bottomButtonColor)
-            .cornerRadius(15)
-        }
-
     }
     
-    var ethBlock: some View {
-        VStack {
-            createButton(imagName: Image.ethIcn, text: "Ethereum", number: "$1,651.64")
-        }
-        .background(Color.bottomButtonColor.cornerRadius(15))
-    }
-    var btcBlock: some View {
-        VStack {
-            createButton(imagName: Image.btcIcn, text: "Bitcoin", number: "21,188.12")
-        }
-        .background(Color.bottomButtonColor)
-        .cornerRadius(15)
-    }
-    
-    var stgBlock: some View {
+    var settingsBlock: some View {
         HStack {
             Spacer()
             Button(action: {}) {
@@ -96,40 +67,42 @@ extension MainView {
                 }
                 .foregroundColor(Color.white)
                 .frame(width: 70, height: 70)
-                .font(.system(size: 27))
                 .background(Color.bottomButtonColor)
                 .cornerRadius(15)
                 
             }
         }
     }
-    func createButton(imagName: Image, text: String, number: String) -> some View {
+    func createButton(imageName: Image, text: String, number: String) -> some View {
         VStack {
             VStack {
                 Button(action: {}) {
-                        HStack {
-                            imagName
+                    HStack {
+                        imageName
                             .resizable()
-                                .foregroundColor(Color.white)
-                                .frame(width: 30, height: 30)
-                            Text("\(text)")
-                                .font(.system(size: 27))
-                                .foregroundColor(Color.white)
-                                .padding()
-                            Spacer()
-                            Text("\(number)")
-                                .frame(height: 40)
-                                .background(Color.black)
-                                .cornerRadius(10)
-                                .foregroundColor(.white)
-                            
-                        }
-                        .cornerRadius(15)
-                        .padding([.leading,.trailing],20)
-
+                            .foregroundColor(Color.white)
+                            .frame(width: 30, height: 30)
+                        Text("\(text)")
+                            .font(.system(size: 18, weight: .bold))
+                            .foregroundColor(Color.white)
+                            .padding()
+                        Spacer()
+                        Text("\(number)")
+                            .frame(height: 40)
+                            .font(.system(size: 16, weight: .bold))
+                            .background(Color.mainColor.opacity(0.8))
+                            .cornerRadius(10)
+                            .foregroundColor(.white)
+                        
+                    }
+                    .frame(height: 70)
+                    .cornerRadius(15)
+                    .padding([.leading,.trailing],20)
+                    
                 }
             }
         }
     }
+}
 
 
