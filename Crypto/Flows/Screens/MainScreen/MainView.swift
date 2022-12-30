@@ -15,7 +15,7 @@ struct MainView: View {
                 titleView
                 Spacer()
                 List {
-                    topCoin
+                    coinList
                         .listRowBackground(Color.mainColor)
                 }
                 .scrollContentBackground(.hidden)
@@ -43,7 +43,7 @@ private extension MainView {
         }
     }
     
-    var topCoin: some View {
+    var coinList: some View {
         VStack {
             VStack(spacing: 10) {
                 
