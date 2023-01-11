@@ -11,16 +11,20 @@ struct MainView: View {
     @ObservedObject var viewModel = MainViewModel()
     var body: some View {
         NavigationView {
-            VStack {
-                titleView
-                Spacer()
-                List {
-                    coinList
-                        .listRowBackground(Color.mainColor)
+            ZStack {
+                VStack {
+                    Spacer()
+                    ScrollView {
+                        coinList
+                            .listRowBackground(Color.mainColor)
+                    }
+                    .scrollContentBackground(.hidden)
+                    settingsBlock
+                    Spacer()
                 }
-                .scrollContentBackground(.hidden)
+                .background(Color.mainColor)
+                .createToolbarMainView(text: "Crypto")
             }
-            .background(Color.mainColor)
         }
         
     }
@@ -30,31 +34,22 @@ struct MainView: View {
             MainView()
         }
     }
-    
 }
 
 private extension MainView {
-    var titleView: some View {
-        ZStack {
-            Text("Crypto")
-                .font(.system(size: 24, weight: .bold))
-                .foregroundColor(.white)
-            Spacer()
-        }
-    }
-    
-    var coinList: some View {
+var coinList: some View {
         VStack {
             VStack(spacing: 10) {
-                
                 ForEach(viewModel.coinModels, id: \.id) { coinModel in
-                    createButton(imageName: coinModel.icon, text: coinModel.name, number: "$\(coinModel.price)")
+                    createButton(coinModel: coinModel)
                         .background(Color.bottomButtonColor)
                         .cornerRadius(15)
+                        .padding([.leading,.trailing], 20)
                 }
+                .padding(.bottom, 15)
             }
             Spacer()
-            settingsBlock
+    
         }
     }
     
@@ -69,37 +64,37 @@ private extension MainView {
                 .frame(width: 70, height: 70)
                 .background(Color.bottomButtonColor)
                 .cornerRadius(15)
-                
-            }
+                }
+            .padding([.bottom, .trailing], 15)
         }
     }
-    func createButton(imageName: Image, text: String, number: String) -> some View {
+    func createButton(coinModel: Coin) -> some View {
         VStack {
             VStack {
                 Button(action: {}) {
                     HStack {
-                        imageName
+                        coinModel.icon
                             .resizable()
                             .foregroundColor(Color.white)
                             .frame(width: 30, height: 30)
-                        Text("\(text)")
-                            .font(.system(size: 18, weight: .bold))
+                        Text(coinModel.name)
+                            .font(.system( size: 18, weight: .bold))
+                            
                             .foregroundColor(Color.white)
                             .padding()
                         Spacer()
-                        Text("\(number)")
-                            .frame(height: 40)
-                            .font(.system(size: 16, weight: .bold))
+                        Text("$" + String(format:"%.2f", coinModel.price))
+                            .frame(height: 30)
+                            .font(.system(size: 16, weight: .medium))
                             .background(Color.mainColor.opacity(0.8))
                             .cornerRadius(10)
                             .foregroundColor(.white)
-                        
-                    }
-                    .frame(height: 70)
+                        }
                     .cornerRadius(15)
-                    .padding([.leading,.trailing],20)
+                    .padding([.leading,.trailing], 20)
                     
                 }
+                .frame(height: 70)
             }
         }
     }

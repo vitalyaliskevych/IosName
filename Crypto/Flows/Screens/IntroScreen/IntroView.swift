@@ -39,21 +39,21 @@ private extension IntroView {
     var welcome: some View {
         Text("Welcome")
             .foregroundColor(Color.white)
-            .font(.custom("Poppins-Bold", size: 40))
+            .font(.system( size: 40, weight: .bold))
     }
     var welcome2: some View {
         Text("To the Crypto")
             .foregroundColor(Color.white)
-            .font(.custom("Poppins-SemiBold", size: 30))
+            .font(.system( size: 30, weight: .bold))
     }
     
     var bottomButton: some View {
-        Button(action: {}) {
-            Text("Let's start")
-                .foregroundColor(Color.white)
-                .frame(width: 330, height: 70)
-                .font(.custom("Poppins-SemiBold", size: 18))
-            
+            Button(action: {}) {
+                Text("Let's start")
+                    .foregroundColor(Color.white)
+                    .frame(width: 330, height: 70)
+                    .font(.system( size: 18, weight: .bold))
+
         }
         .background(Color.bottomButtonColor)
         .cornerRadius(15)

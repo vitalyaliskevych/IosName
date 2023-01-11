@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Bucket
-   uuid = "3FB210A3-8D3C-4B1E-8A32-14763DF48828"
+   uuid = "0CBA76F8-98FE-43CD-A55F-C1B5185AFA7B"
    type = "1"
    version = "2.0">
    <Breakpoints>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "84FEDEAE-E1A6-4AD5-906B-E1966BC00397"
+            uuid = "795DD4C8-F9EF-4175-A3BA-7BE8B4B28722"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Crypto/Flows/Screens/MainScreen/MainView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
-            landmarkName = "MainView"
-            landmarkType = "21">
+            startingLineNumber = "77"
+            endingLineNumber = "77"
+            landmarkName = "createButton(coinModel:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
