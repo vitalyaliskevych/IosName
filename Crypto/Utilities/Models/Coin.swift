@@ -9,7 +9,6 @@ import SwiftUI
 
 struct Coin: Identifiable {
     var id = UUID()
-    
     let name: String
     let price: Double
     let icon: Image
