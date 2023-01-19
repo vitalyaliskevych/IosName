@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct SettingsView: View {
+    
     @ObservedObject var viewModel: SettingsViewModel
+    
     var body: some View {
         NavigationView {
             ZStack {
@@ -29,7 +31,6 @@ struct SettingsView: View {
         }
     }
     
-    
     struct SettingsView_Previews: PreviewProvider {
         static var previews: some View {
             SettingsView(viewModel: .init())
@@ -45,51 +46,52 @@ private extension SettingsView {
             createButtonVersion(text: "Version", version: "1.0")
         }
     }
+    
     func createButtonForToggle(text: String, isOn: Bool) -> some
     View {
-            VStack {
-                Button(action: {}) {
+        VStack {
+            Button(action: {}) {
+                HStack {
                     HStack {
-                        HStack {
-                            Text("\(text)")
-                                .font(.system(size: 18, weight: .bold))
-                                .foregroundColor(Color.white)
-                                .padding()
-                            Spacer()
-                            
-                            Toggle(isOn: $viewModel.isOn, label: {})
-                                .toggleStyle(SwitchToggleStyle(tint: Color.white))
-                                .tag("toggle")
-                                .frame(width: 60, height: 40)
-                        }
+                        Text("\(text)")
+                            .font(.system(size: 18, weight: .bold))
+                            .foregroundColor(Color.white)
+                            .padding()
+                        Spacer()
+                        Toggle(isOn: $viewModel.isOn, label: {})
+                            .toggleStyle(SwitchToggleStyle(tint: Color.white))
+                            .tag("toggle")
+                            .frame(width: 60, height: 40)
+                    }
                     .padding([.leading,.trailing],10)
                 }
             }
-                .frame(width: 330, height: 70)
-                .background(Color.bottomButtonColor)
-                .cornerRadius(15)
+            .frame(width: 330, height: 70)
+            .background(Color.bottomButtonColor)
+            .cornerRadius(15)
         }
     }
+    
     func createButton(text: String) -> some View {
         ZStack {
             Button(action: {}) {
                 HStack {
                     Text(text)
                         .frame(maxWidth: .infinity, alignment: .leading)
-                    .foregroundColor(Color.white)
-                    .font(.system( size: 18, weight: .bold))
-                    .padding(.horizontal, 20)
+                        .foregroundColor(Color.white)
+                        .font(.system( size: 18, weight: .bold))
+                        .padding(.horizontal, 20)
                 }
                 .frame(width: 330, height: 70)
                 .background(Color.bottomButtonColor)
                 .cornerRadius(15)
             }
             .padding([.leading,.trailing], 10)
-
-        }
+            }
     }
+    
     func createButtonVersion(text: String, version: String) -> some View {
-            ZStack {
+        ZStack {
             Button(action: {}) {
                 HStack {
                     HStack {
@@ -98,8 +100,8 @@ private extension SettingsView {
                             .font(.system( size: 18, weight: .bold))
                             .padding()
                         Spacer()
-                       
-                            Text(version)
+                        
+                        Text(version)
                             .frame(height: 30)
                             .font(.system(size: 16, weight: .medium))
                             .padding(.horizontal, 15)
@@ -112,8 +114,8 @@ private extension SettingsView {
             .padding([.leading,.trailing], 10)
             .frame(width: 330, height: 70)
         }
-            .background(Color.bottomButtonColor)
-            .cornerRadius(15)
-            .frame(width: 330, height: 70)
+        .background(Color.bottomButtonColor)
+        .cornerRadius(15)
+        .frame(width: 330, height: 70)
     }
 }

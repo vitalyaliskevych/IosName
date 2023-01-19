@@ -16,7 +16,7 @@ struct CryptoApp: App {
         }
     var body: some Scene {
         WindowGroup {
-            MainView()
+            SettingsView(viewModel: SettingsViewModel())
         }
     }
 }
