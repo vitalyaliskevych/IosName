@@ -15,6 +15,8 @@
 		8BF853E5298057600054D4DA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8BF853E7298057600054D4DA /* Localizable.strings */; };
 		8BF853E9298153370054D4DA /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF853E8298153370054D4DA /* String.swift */; };
 		8BF853ED29816D500054D4DA /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF853EC29816D500054D4DA /* Bundle.swift */; };
+		8BF853DE297AC1550054D4DA /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF853DD297AC1550054D4DA /* DetailViewModel.swift */; };
+		8BF853E0297AC16B0054D4DA /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF853DF297AC16B0054D4DA /* DetailView.swift */; };
 		8BFC245A2922A8E30070F4A0 /* CryptoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFC24592922A8E30070F4A0 /* CryptoApp.swift */; };
 		8BFC245C2922A8E30070F4A0 /* IntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFC245B2922A8E30070F4A0 /* IntroView.swift */; };
 		8BFC245E2922A8E50070F4A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BFC245D2922A8E50070F4A0 /* Assets.xcassets */; };
@@ -55,6 +57,8 @@
 		8BF853E6298057600054D4DA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		8BF853E8298153370054D4DA /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		8BF853EC29816D500054D4DA /* Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
+		8BF853DD297AC1550054D4DA /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		8BF853DF297AC16B0054D4DA /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		8BFC24562922A8E30070F4A0 /* Crypto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Crypto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BFC24592922A8E30070F4A0 /* CryptoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoApp.swift; sourceTree = "<group>"; };
 		8BFC245B2922A8E30070F4A0 /* IntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroView.swift; sourceTree = "<group>"; };
@@ -122,6 +126,15 @@
 				8B51E970294B6E8200D91E1E /* News.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		8BF853DA297AC07B0054D4DA /* DetailScreen */ = {
+			isa = PBXGroup;
+			children = (
+				8BF853DD297AC1550054D4DA /* DetailViewModel.swift */,
+				8BF853DF297AC16B0054D4DA /* DetailView.swift */,
+			);
+			path = DetailScreen;
 			sourceTree = "<group>";
 		};
 		8BFC244D2922A8E30070F4A0 = {
@@ -201,6 +214,7 @@
 		8BFC24852922B1670070F4A0 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				8BF853DA297AC07B0054D4DA /* DetailScreen */,
 				8B51E9672938EB0E00D91E1E /* SettingsScreen */,
 				8B51E9662938EB0200D91E1E /* MainScreen */,
 				8BFC248A2922B3710070F4A0 /* IntroScreen */,
@@ -386,11 +400,13 @@
 				8B51E971294B6E8200D91E1E /* News.swift in Sources */,
 				8BFC24C62922CA620070F4A0 /* Colors.swift in Sources */,
 				8BFC248E2922B5460070F4A0 /* Images.swift in Sources */,
+				8BF853DE297AC1550054D4DA /* DetailViewModel.swift in Sources */,
 				8BFC248C2922B3A10070F4A0 /* IntroViewModel.swift in Sources */,
 				8B4CDA09296F31EA000437FB /* Toolbar.swift in Sources */,
 				8B51E96D294A23A000D91E1E /* Coin.swift in Sources */,
 				8BFC245A2922A8E30070F4A0 /* CryptoApp.swift in Sources */,
 				8BF853E2297ECB330054D4DA /* SettingsViewModel.swift in Sources */,
+				8BF853E0297AC16B0054D4DA /* DetailView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
