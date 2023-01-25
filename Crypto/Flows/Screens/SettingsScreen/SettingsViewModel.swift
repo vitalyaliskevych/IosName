@@ -9,6 +9,6 @@ import Foundation
 
 
 class SettingsViewModel: ObservableObject {
-
- @Published var isOn = false
+    @Published var isOn = false
+    
 }

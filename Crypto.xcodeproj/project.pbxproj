@@ -12,6 +12,9 @@
 		8B51E96D294A23A000D91E1E /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B51E96C294A23A000D91E1E /* Coin.swift */; };
 		8B51E971294B6E8200D91E1E /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B51E970294B6E8200D91E1E /* News.swift */; };
 		8BF853E2297ECB330054D4DA /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF853E1297ECB330054D4DA /* SettingsViewModel.swift */; };
+		8BF853E5298057600054D4DA /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8BF853E7298057600054D4DA /* Localizable.strings */; };
+		8BF853E9298153370054D4DA /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF853E8298153370054D4DA /* String.swift */; };
+		8BF853ED29816D500054D4DA /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF853EC29816D500054D4DA /* Bundle.swift */; };
 		8BFC245A2922A8E30070F4A0 /* CryptoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFC24592922A8E30070F4A0 /* CryptoApp.swift */; };
 		8BFC245C2922A8E30070F4A0 /* IntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFC245B2922A8E30070F4A0 /* IntroView.swift */; };
 		8BFC245E2922A8E50070F4A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BFC245D2922A8E50070F4A0 /* Assets.xcassets */; };
@@ -49,6 +52,9 @@
 		8B51E96C294A23A000D91E1E /* Coin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
 		8B51E970294B6E8200D91E1E /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		8BF853E1297ECB330054D4DA /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		8BF853E6298057600054D4DA /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		8BF853E8298153370054D4DA /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		8BF853EC29816D500054D4DA /* Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
 		8BFC24562922A8E30070F4A0 /* Crypto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Crypto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BFC24592922A8E30070F4A0 /* CryptoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoApp.swift; sourceTree = "<group>"; };
 		8BFC245B2922A8E30070F4A0 /* IntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroView.swift; sourceTree = "<group>"; };
@@ -216,6 +222,8 @@
 				8BFC248D2922B5460070F4A0 /* Images.swift */,
 				8BFC24C52922CA620070F4A0 /* Colors.swift */,
 				8B4CDA08296F31EA000437FB /* Toolbar.swift */,
+				8BF853E8298153370054D4DA /* String.swift */,
+				8BF853EC29816D500054D4DA /* Bundle.swift */,
 			);
 			path = Extentions;
 			sourceTree = "<group>";
@@ -223,6 +231,7 @@
 		8BFC24892922B1ED0070F4A0 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				8BF853E7298057600054D4DA /* Localizable.strings */,
 				8BFC245D2922A8E50070F4A0 /* Assets.xcassets */,
 			);
 			path = Resources;
@@ -342,6 +351,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8BFC24612922A8E50070F4A0 /* Preview Assets.xcassets in Resources */,
+				8BF853E5298057600054D4DA /* Localizable.strings in Resources */,
 				8BFC245E2922A8E50070F4A0 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -368,6 +378,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8BFC24CF292654E70070F4A0 /* MainViewModel.swift in Sources */,
+				8BF853ED29816D500054D4DA /* Bundle.swift in Sources */,
+				8BF853E9298153370054D4DA /* String.swift in Sources */,
 				8B51E9652938EAF100D91E1E /* SettingsView.swift in Sources */,
 				8BFC245C2922A8E30070F4A0 /* IntroView.swift in Sources */,
 				8BFC24CD292654D60070F4A0 /* MainView.swift in Sources */,
@@ -413,6 +425,17 @@
 			targetProxy = 8BFC24712922A8E60070F4A0 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		8BF853E7298057600054D4DA /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8BF853E6298057600054D4DA /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		8BFC24782922A8E60070F4A0 /* Debug */ = {

@@ -27,7 +27,7 @@ struct SettingsView: View {
                     .background(Color.mainColor.opacity(0.8))
                     .createToolBarSettingsView(
                         image: "xmark",
-                        text: "Settings", dismissAction: {}
+                        text: "settings".localized, dismissAction: {}
                     )
                     //TODO: ADD ACTION COORDINATOR
                 }
@@ -36,31 +36,24 @@ struct SettingsView: View {
     }
 }
 
-struct SettingsView_Previews: PreviewProvider {
-    static var previews: some View {
-        SettingsView(viewModel: .init())
-    }
-}
-
 private extension SettingsView {
     var buttonList: some View {
         VStack(spacing: 20) {
             createButtonForToggle(
-                text: "Notification",
+                text: "notification".localized,
                 isOn: viewModel.isOn
             )
-            createButton(text: "Our website")
-            createButtonVersion(text: "Version", version: "1.0")
+            createButton(text: "our_website".localized)
+            createButtonVersion(text: "version".localized, version: "\(Bundle.main.appVersion)")
         }
     }
     
-    func createButtonForToggle(text: String, isOn: Bool) -> some
-    View {
+    func createButtonForToggle(text: String, isOn: Bool) -> some View {
         VStack {
             Button(action: {}) {
                 HStack {
                     HStack {
-                        Text("\(text)")
+                        Text(text)
                             .font(.system(size: 18, weight: .bold))
                             .foregroundColor(Color.white)
                             .padding()
@@ -107,7 +100,7 @@ private extension SettingsView {
                             .font(.system( size: 18, weight: .bold))
                             .padding()
                         Spacer()
-                        Text(version)
+                        Text("\(version)")
                             .frame(height: 30)
                             .font(.system(size: 16, weight: .medium))
                             .padding(.horizontal, 15)
@@ -123,5 +116,11 @@ private extension SettingsView {
         .background(Color.bottomButtonColor)
         .cornerRadius(15)
         .frame(width: 330, height: 70)
+    }
+}
+
+struct SettingsView_Previews: PreviewProvider {
+    static var previews: some View {
+        SettingsView(viewModel: .init())
     }
 }
