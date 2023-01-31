@@ -9,14 +9,9 @@ import SwiftUI
 
 @main
 struct CryptoApp: App {
-    init() {
-        UINavigationBar.appearance().barTintColor = UIColor(Color.bottomButtonColor)
-//            UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
-//            UINavigationBar.appearance().shadowImage = UIImage()
-        }
     var body: some Scene {
         WindowGroup {
-            MainView()
+           SettingsView(viewModel: SettingsViewModel())
         }
     }
 }

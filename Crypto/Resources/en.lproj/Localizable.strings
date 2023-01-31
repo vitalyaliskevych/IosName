@@ -1,0 +1,12 @@
+/* 
+  Localizable.strings
+  Crypto
+
+  Created by Developer on 24.01.2023.
+  
+*/
+
+"settings" = "Settings";
+"our_website" = "Our website";
+"notification" = "Notification";
+"version" = "Version";
