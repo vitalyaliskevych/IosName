@@ -30,21 +30,13 @@ struct DetailScreenView: View {
     }
 }
 
-struct DetailScreenView_Previews: PreviewProvider {
-    static var previews: some View {
-        DetailScreenView()
-    }
-}
-
 private extension DetailScreenView {
-    
     var main: some View {
         VStack(spacing: 15) {
             bitcoinPrice
             news
         }
     }
-    
     var bitcoinPrice: some View {
         HStack {
             HStack {
@@ -60,7 +52,6 @@ private extension DetailScreenView {
         }
         .padding()
     }
-    
     var news: some View {
         VStack {
             HStack {
@@ -116,5 +107,11 @@ private extension DetailScreenView {
             .background(Color.bottomButtonColor)
             .cornerRadius(15)
         }
+    }
+}
+
+struct DetailScreenView_Previews: PreviewProvider {
+    static var previews: some View {
+        DetailScreenView()
     }
 }
