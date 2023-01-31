@@ -50,7 +50,6 @@ private extension SettingsView {
     
     func createButtonForToggle(text: String, isOn: Bool) -> some View {
         VStack {
-            Button(action: {}) {
                 HStack {
                     HStack {
                         Text(text)
@@ -64,7 +63,6 @@ private extension SettingsView {
                             .frame(width: 60, height: 40)
                     }
                     .padding([.leading,.trailing],10)
-                }
             }
             .frame(width: 330, height: 70)
             .background(Color.bottomButtonColor)
