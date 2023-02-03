@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct DetailScreenView: View {
-    @ObservedObject var viewModel = DetailViewModel()
+    
+    @ObservedObject var viewModel: DetailViewModel
+    
     var body: some View {
         NavigationView {
             ZStack {
@@ -18,11 +20,10 @@ struct DetailScreenView: View {
                     ScrollView {
                         main
                     }
-                    createButton(text: "Buy Bitcoin", dismissAction: {})
+                    createBuyCoinButton(text: "buy".localized, action: {})
                 }
                 .createToolBarDetailView(
-                    image: "chevron.left",
-                    text: "Bitcoin",
+                    text: viewModel.title,
                     dismissAction: {}
                 )
             }
@@ -52,22 +53,23 @@ private extension DetailScreenView {
         }
         .padding()
     }
+    
     var news: some View {
         VStack {
             HStack {
-                Text("News")
+                Text("news".localized)
                     .foregroundColor(Color.white)
                     .font(.system( size: 26, weight: .bold))
                     .padding()
                 Spacer()
             }
             ForEach(viewModel.newsModels, id: \.id) { newsModel in
-                createToNews(newsModel: newsModel)
+                createNewsRow(newsModel: newsModel)
             }
         }
     }
     
-    func createToNews(newsModel: News) -> some View {
+    func createNewsRow(newsModel: News) -> some View {
         VStack {
             HStack {
                 Text(newsModel.newsId)
@@ -83,19 +85,15 @@ private extension DetailScreenView {
                     .padding(.leading, 20)
                 Spacer()
             }
-            Divider()
-                .frame( width: UIScreen.main.bounds.width / 1.1, height: 1)
-                .background(Color.gray)
+            createDivider
         }
         .padding(.top, 20)
         
     }
     
-    func createButton(text: String, dismissAction: (() -> Void)?) -> some View {
+    func createBuyCoinButton(text: String, action: (() -> Void)?) -> some View {
         VStack {
-            Button(action: {
-                dismissAction?()
-                }) {
+            Button(action: {action?()}) {
                 HStack {
                     Text(text)
                         .font(.system( size: 18, weight: .bold))
@@ -108,10 +106,15 @@ private extension DetailScreenView {
             .cornerRadius(15)
         }
     }
+    var createDivider: some View {
+        Divider()
+            .frame( width: UIScreen.main.bounds.width / 1.1, height: 1)
+            .background(Color.gray)
+    }
 }
 
 struct DetailScreenView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailScreenView()
+        DetailScreenView(viewModel: .init(title: "Bitcoin"))
     }
 }

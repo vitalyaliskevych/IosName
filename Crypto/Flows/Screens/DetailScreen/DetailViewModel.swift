@@ -14,4 +14,8 @@ class DetailViewModel: ObservableObject {
         .init(newsId: "Binance Market Update", newsDate: "14h ago"),
         .init(newsId: "Binance Market Update", newsDate: "2d ago")
     ]
+    let title: String
+    init(title: String) {
+        self.title = title
+    }
 }
