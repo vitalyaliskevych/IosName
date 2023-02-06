@@ -11,6 +11,7 @@ struct DetailScreenView: View {
     
     @ObservedObject var viewModel: DetailViewModel
     
+    var coinName: Coin
     var body: some View {
         NavigationView {
             ZStack {
@@ -20,10 +21,10 @@ struct DetailScreenView: View {
                     ScrollView {
                         main
                     }
-                    createBuyCoinButton(text: "buy".localized, action: {})
+                    createBuyCoinButton(text: "buy" + String(" " + coinName.name), action: {})
                 }
                 .createToolBarDetailView(
-                    text: viewModel.title,
+                    text: String(coinName.name),
                     dismissAction: {}
                 )
             }
@@ -34,14 +35,14 @@ struct DetailScreenView: View {
 private extension DetailScreenView {
     var main: some View {
         VStack(spacing: 15) {
-            bitcoinPrice
+            coinPrice
             news
         }
     }
-    var bitcoinPrice: some View {
+    var coinPrice: some View {
         HStack {
             HStack {
-                Text("$1,651,54")
+                Text("$" + String(format:"%.2f", coinName.price))
                     .font(.system(size: 16))
                     .foregroundColor(.red)
             }
@@ -88,7 +89,6 @@ private extension DetailScreenView {
             createDivider
         }
         .padding(.top, 20)
-        
     }
     
     func createBuyCoinButton(text: String, action: (() -> Void)?) -> some View {
@@ -106,6 +106,7 @@ private extension DetailScreenView {
             .cornerRadius(15)
         }
     }
+    
     var createDivider: some View {
         Divider()
             .frame( width: UIScreen.main.bounds.width / 1.1, height: 1)
@@ -115,6 +116,6 @@ private extension DetailScreenView {
 
 struct DetailScreenView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailScreenView(viewModel: .init(title: "Bitcoin"))
+        DetailScreenView(viewModel: DetailViewModel(), coinName: .init(name: "Bitcoin", price: 1651.64, icon: Image.btcIcn))
     }
 }

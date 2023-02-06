@@ -11,4 +11,4 @@
 "notification" = "Notification";
 "version" = "Version";
 "news" = "News";
-"buy" = "Buy";
+"buy" = "Buy, %@";
