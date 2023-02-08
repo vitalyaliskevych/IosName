@@ -8,7 +8,10 @@
 import Foundation
 
 class DetailViewModel: ObservableObject {
-    
+    var coinName: Coin
+    init(coinName: Coin) {
+        self.coinName = coinName
+    }
     let newsModels: [News] = [
         .init(newsId: "Binance Market Update", newsDate: "7h ago"),
         .init(newsId: "Binance Market Update", newsDate: "14h ago"),

@@ -10,8 +10,7 @@ import SwiftUI
 struct DetailScreenView: View {
     
     @ObservedObject var viewModel: DetailViewModel
-    
-    var coinName: Coin
+   
     var body: some View {
         NavigationView {
             ZStack {
@@ -21,10 +20,10 @@ struct DetailScreenView: View {
                     ScrollView {
                         main
                     }
-                    createBuyCoinButton(text: "buy" + String(" " + coinName.name), action: {})
+                    createBuyCoinButton(text: "buy".localizedWithVars(vars: viewModel.coinName.name), action: {})
                 }
                 .createToolBarDetailView(
-                    text: String(coinName.name),
+                    text: String(viewModel.coinName.name),
                     dismissAction: {}
                 )
             }
@@ -39,10 +38,11 @@ private extension DetailScreenView {
             news
         }
     }
+    
     var coinPrice: some View {
         HStack {
             HStack {
-                Text("$" + String(format:"%.2f", coinName.price))
+                Text("$" + String(format:"%.2f", viewModel.coinName.price))
                     .font(.system(size: 16))
                     .foregroundColor(.red)
             }
@@ -116,6 +116,11 @@ private extension DetailScreenView {
 
 struct DetailScreenView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailScreenView(viewModel: DetailViewModel(), coinName: .init(name: "Bitcoin", price: 1651.64, icon: Image.btcIcn))
+        DetailScreenView(viewModel: DetailViewModel(coinName: .init(name: "Bitcoin", price: 1651.64, icon: Image.btcIcn)))
     }
 }
+
+
+
+
+
