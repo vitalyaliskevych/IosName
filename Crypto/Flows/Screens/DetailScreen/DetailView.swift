@@ -42,7 +42,7 @@ private extension DetailScreenView {
     var coinPrice: some View {
         HStack {
             HStack {
-                Text("$" + String(format:"%.2f", viewModel.coinName.price))
+                Text("$" + (viewModel.coinName.price).toString())
                     .font(.system(size: 16))
                     .foregroundColor(.red)
             }
