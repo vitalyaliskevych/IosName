@@ -14,7 +14,7 @@ struct GraphView: View {
     var body: some View {
         ZStack {
             VStack(alignment: .center, spacing: 10) {
-                HStack(alignment: .bottom, spacing: 26) {
+                HStack(alignment: .bottom, spacing: 25) {
                     ForEach(viewModel.priceInfoViewModels) { priceInfoViewModel in
                         Rectangle()
                             .foregroundColor(priceInfoViewModel.color)
@@ -31,6 +31,9 @@ struct GraphView: View {
                     .frame(width: 50, height: 30)
                 }
             }
+            .frame(width: 330, height: 330)
+            .background(Color.bottomButtonColor.opacity(0.8))
+            .cornerRadius(15)
         }
     }
 }
