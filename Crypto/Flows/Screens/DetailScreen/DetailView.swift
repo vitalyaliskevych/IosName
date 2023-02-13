@@ -19,6 +19,7 @@ struct DetailScreenView: View {
                 VStack {
                     ScrollView {
                         main
+
                     }
                     createBuyCoinButton(text: "buy".localizedWithVars(vars: viewModel.coinName.name), action: {})
                 }
@@ -94,12 +95,10 @@ private extension DetailScreenView {
     func createBuyCoinButton(text: String, action: (() -> Void)?) -> some View {
         VStack {
             Button(action: {action?()}) {
-                HStack {
-                    Text(text)
+                        Text(text)
                         .font(.system( size: 18, weight: .bold))
                         .foregroundColor(.white)
                         .padding()
-                }
             }
             .frame(width: 330)
             .background(Color.bottomButtonColor)
