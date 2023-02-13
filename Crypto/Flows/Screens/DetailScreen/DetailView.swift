@@ -119,8 +119,3 @@ struct DetailScreenView_Previews: PreviewProvider {
         DetailScreenView(viewModel: DetailViewModel(coinName: .init(name: "Bitcoin", price: 1651.64, icon: Image.btcIcn)))
     }
 }
-
-
-
-
-

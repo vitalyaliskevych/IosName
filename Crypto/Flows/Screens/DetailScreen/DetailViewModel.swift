@@ -25,5 +25,4 @@ class DetailViewModel: ObservableObject {
         .init(name: "Litecoin", price: 68.06, icon: .ltcIcn),
         .init(name: "Ethereum", price: 1651, icon: .ethIcn),
     ]
-
 }
