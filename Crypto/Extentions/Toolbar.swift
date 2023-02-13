@@ -19,6 +19,26 @@ extension View {
         })
     }
     
+    func createToolBarDetailView(text: String, dismissAction: (() -> Void)?) -> some View {
+        self.toolbar(content: {
+            ToolbarItem(placement: .navigationBarLeading) {
+                Button(action: {
+                    dismissAction?()
+                }, label: {
+                    Image(systemName: "chevron.left")
+                        .foregroundColor(Color.white)
+                        .padding(.leading, 15)
+                })
+            }
+            ToolbarItem(placement: .principal) {
+                Text(text)
+                    .font(.system(size: 24, weight: .bold))
+                    .foregroundColor(.white)
+                    .padding()
+            }
+        })
+    }
+    
     func createToolBarSettingsView(image: String, text: String, dismissAction: (() -> Void)?) -> some View {
         self.toolbar(content: {
             ToolbarItem(placement: .navigationBarTrailing) {
@@ -32,11 +52,9 @@ extension View {
             }
             ToolbarItem(placement: .principal) {
                 Text(text)
-                    .font(.system(size: 24, weight: .bold))
+                    .font(.system(size: 35, weight: .bold))
                     .foregroundColor(.white)
-                    .padding()
             }
         })
     }
 }
-
