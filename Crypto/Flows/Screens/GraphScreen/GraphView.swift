@@ -28,10 +28,13 @@ struct GraphView: View {
                         Text(val.day)
                     }
                     .frame(width: 50, height: 30)
+                    .foregroundColor(Color.white)
+                    .background(Color.mainColor.opacity(0.5))
+                    .cornerRadius(15)
                 }
             }
             .frame(width: 330, height: 330)
-            .background(Color.bottomButtonColor.opacity(0.8))
+            .background(Color.bottomButtonColor.opacity(0.9))
             .cornerRadius(15)
         }
     }
@@ -42,8 +45,7 @@ private extension GraphView {
         Color.gray
             .cornerRadius(.infinity)
             .frame(width: 310, height: 5)
-            
-    }
+            }
 }
 
 struct GraphView_Previews: PreviewProvider {
