@@ -45,7 +45,7 @@ private extension GraphView {
         Color.gray
             .cornerRadius(.infinity)
             .frame(width: 310, height: 5)
-            }
+    }
 }
 
 struct GraphView_Previews: PreviewProvider {
@@ -62,6 +62,3 @@ struct GraphView_Previews: PreviewProvider {
         GraphView(viewModel: .init(coinInfo: coinInfo))
     }
 }
-
-
-
