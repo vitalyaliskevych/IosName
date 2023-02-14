@@ -10,8 +10,8 @@ import SwiftUI
 
 class GraphViewModel: ObservableObject {
 
-    @Published var maxValue: Double = 100
-    @Published var fullBarHeight: Double = 250
+    var maxValue: Double = 100
+    var fullBarHeight: Double = 250
     @Published var priceInfoViewModels: [PriceInfoViewModel] = []
 
     init(coinInfo: [PriceInfo]) {
