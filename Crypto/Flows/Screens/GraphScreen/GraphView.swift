@@ -23,7 +23,6 @@ struct GraphView: View {
                     }
                 }
                 createDivider
-                
                 HStack(spacing: 9) {
                     ForEach(viewModel.priceInfoViewModels) { val in
                         Text(val.day)
