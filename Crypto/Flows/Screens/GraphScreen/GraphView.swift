@@ -22,7 +22,7 @@ struct GraphView: View {
                             .cornerRadius(.infinity)
                     }
                 }
-                createDivider
+                divider
                 HStack(spacing: 9) {
                     ForEach(viewModel.priceInfoViewModels) { val in
                         Text(val.day)
@@ -41,7 +41,7 @@ struct GraphView: View {
 }
 
 private extension GraphView {
-    var createDivider: some View {
+    var divider: some View {
         Color.gray
             .cornerRadius(.infinity)
             .frame(width: 310, height: 5)
