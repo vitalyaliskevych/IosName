@@ -10,7 +10,7 @@ import SwiftUI
 struct DetailScreenView: View {
     
     @ObservedObject var viewModel: DetailViewModel
-   
+    
     var body: some View {
         NavigationView {
             ZStack {
@@ -94,12 +94,10 @@ private extension DetailScreenView {
     func createBuyCoinButton(text: String, action: (() -> Void)?) -> some View {
         VStack {
             Button(action: {action?()}) {
-                HStack {
-                    Text(text)
-                        .font(.system( size: 18, weight: .bold))
-                        .foregroundColor(.white)
-                        .padding()
-                }
+                Text(text)
+                    .font(.system( size: 18, weight: .bold))
+                    .foregroundColor(.white)
+                    .padding()
             }
             .frame(width: 330)
             .background(Color.bottomButtonColor)
