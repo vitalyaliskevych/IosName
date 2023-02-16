@@ -37,11 +37,19 @@ struct MainView: View {
 }
 
 private extension MainView {
-var coinList: some View {
+    
+    var coinList: some View {
         VStack {
             VStack(spacing: 10) {
                 ForEach(viewModel.coinModels, id: \.id) { coinModel in
-                    createButton(coinModel: coinModel, action: {viewModel.navigationToDetailScreen(coinName: coinModel)})
+                    createButton(
+                        coinModel: coinModel,
+                        action: {
+                            viewModel.navigationToDetailScreen(
+                                coinName: coinModel
+                            )
+                        }
+                    )
                         .background(Color.bottomButtonColor)
                         .cornerRadius(15)
                         .padding([.leading,.trailing], 20)

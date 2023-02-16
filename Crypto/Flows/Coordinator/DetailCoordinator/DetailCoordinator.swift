@@ -15,6 +15,7 @@ class DetailCoordinator: ObservableObject {
     
     var onResult: ((Result) -> Void)?
     var detailViewModel: DetailViewModel
+    
     init(detailViewModel: DetailViewModel) {
         self.detailViewModel = detailViewModel
         detailViewModel.onResult = { [weak self] result in

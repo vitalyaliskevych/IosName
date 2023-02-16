@@ -15,6 +15,7 @@ class SettingsCoordinator: ObservableObject {
     
     var onResult: ((Result) -> Void)?
     var settingsViewModel: SettingsViewModel
+    
     init(settingsViewModel: SettingsViewModel) {
         self.settingsViewModel = settingsViewModel
         settingsViewModel.onResult = { [weak self] result in

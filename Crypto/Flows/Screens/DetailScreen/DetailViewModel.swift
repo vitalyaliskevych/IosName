@@ -14,22 +14,12 @@ class DetailViewModel: ObservableObject {
     }
     
     var onResult: ((Result) -> Void)?
-    
-    func onBackPresed() {
-        onResult?(.navigationToMainScreen)
-    }
-    
     var coinName: Coin
-    init(coinName: Coin) {
-        self.coinName = coinName
-    }
-    
     let newsModels: [News] = [
         .init(newsId: "Binance Market Update", newsDate: "7h ago"),
         .init(newsId: "Binance Market Update", newsDate: "14h ago"),
         .init(newsId: "Binance Market Update", newsDate: "2d ago")
     ]
-    
     let coinModels: [Coin] = [
         .init(name: "Bitcoin", price: 21188.04, icon: .btcIcn),
         .init(name: "Litecoin", price: 68.06, icon: .ltcIcn),
@@ -38,4 +28,12 @@ class DetailViewModel: ObservableObject {
         .init(name: "Litecoin", price: 68.06, icon: .ltcIcn),
         .init(name: "Ethereum", price: 1651, icon: .ethIcn),
     ]
+    
+    init(coinName: Coin) {
+        self.coinName = coinName
+    }
+    
+    func onBackPresed() {
+        onResult?(.navigationToMainScreen)
+    }
 }

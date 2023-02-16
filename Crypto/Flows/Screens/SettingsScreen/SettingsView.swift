@@ -32,7 +32,6 @@ struct SettingsView: View {
                             viewModel.onBackPressed()
                         }
                     )
-                    //TODO: ADD ACTION COORDINATOR
                 }
             }
         }

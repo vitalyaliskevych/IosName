@@ -18,6 +18,7 @@ class MainCoordinator: ObservableObject {
     @Published var route: Route?
     
     var mainViewModel: MainViewModel
+    
     init(mainViewModel: MainViewModel) {
         self.mainViewModel = mainViewModel
         mainViewModel.onResult = { [weak self] result in
@@ -42,7 +43,15 @@ class MainCoordinator: ObservableObject {
     }
     
     func navigationToDetailScreen(coinName: Coin) {
-        let detailCoordinator = DetailCoordinator(detailViewModel: DetailViewModel(coinName: Coin(name: coinName.name, price: 21188, icon: Image.btcIcn)))
+        let detailCoordinator = DetailCoordinator(
+            detailViewModel: DetailViewModel(
+                coinName: Coin(
+                    name: coinName.name,
+                    price: 21188,
+                    icon: Image.btcIcn
+                )
+            )
+        )
         detailCoordinator.onResult = { result in
             switch result {
             case .navigationToMainScreen:
