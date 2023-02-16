@@ -24,7 +24,9 @@ struct DetailScreenView: View {
                 }
                 .createToolBarDetailView(
                     text: String(viewModel.coinName.name),
-                    dismissAction: {}
+                    dismissAction: {
+                        viewModel.onBackPresed()
+                    }
                 )
             }
         }

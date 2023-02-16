@@ -27,7 +27,10 @@ struct SettingsView: View {
                     .background(Color.mainColor.opacity(0.8))
                     .createToolBarSettingsView(
                         image: "xmark",
-                        text: "settings".localized, dismissAction: {}
+                        text: "settings".localized,
+                        dismissAction: {
+                            viewModel.onBackPressed()
+                        }
                     )
                     //TODO: ADD ACTION COORDINATOR
                 }

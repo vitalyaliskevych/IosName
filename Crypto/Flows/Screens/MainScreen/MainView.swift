@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MainView: View {
-    @ObservedObject var viewModel = MainViewModel()
+    @ObservedObject var viewModel : MainViewModel
     var body: some View {
         NavigationView {
             ZStack {
@@ -31,7 +31,7 @@ struct MainView: View {
     
     struct MainView_Previews: PreviewProvider {
         static var previews: some View {
-            MainView()
+            MainView(viewModel: .init())
         }
     }
 }
@@ -41,7 +41,7 @@ var coinList: some View {
         VStack {
             VStack(spacing: 10) {
                 ForEach(viewModel.coinModels, id: \.id) { coinModel in
-                    createButton(coinModel: coinModel)
+                    createButton(coinModel: coinModel, action: {viewModel.navigationToDetailScreen(coinName: coinModel)})
                         .background(Color.bottomButtonColor)
                         .cornerRadius(15)
                         .padding([.leading,.trailing], 20)
@@ -56,7 +56,9 @@ var coinList: some View {
     var settingsBlock: some View {
         HStack {
             Spacer()
-            Button(action: {}) {
+            Button(action: {
+                viewModel.navigationToSettinsScreen()
+            }) {
                 HStack {
                     Image.stgIcn
                 }
@@ -68,10 +70,13 @@ var coinList: some View {
             .padding([.bottom, .trailing], 15)
         }
     }
-    func createButton(coinModel: Coin) -> some View {
+    
+    func createButton(coinModel: Coin, action: (() -> Void)?) -> some View {
         VStack {
             VStack {
-                Button(action: {}) {
+                Button(action: {
+                    action?()
+                }) {
                     HStack {
                         coinModel.icon
                             .resizable()

@@ -9,6 +9,16 @@ import Foundation
 
 
 class SettingsViewModel: ObservableObject {
+    
     @Published var isOn = false
     
+    enum Result {
+        case navigationToMainScreen
+    }
+    
+    var onResult: ((Result) -> Void)?
+    
+    func onBackPressed() {
+        onResult?(.navigationToMainScreen)
+    }
 }

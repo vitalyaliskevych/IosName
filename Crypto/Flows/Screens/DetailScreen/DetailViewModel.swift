@@ -8,15 +8,28 @@
 import Foundation
 
 class DetailViewModel: ObservableObject {
+    
+    enum Result {
+        case navigationToMainScreen
+    }
+    
+    var onResult: ((Result) -> Void)?
+    
+    func onBackPresed() {
+        onResult?(.navigationToMainScreen)
+    }
+    
     var coinName: Coin
     init(coinName: Coin) {
         self.coinName = coinName
     }
+    
     let newsModels: [News] = [
         .init(newsId: "Binance Market Update", newsDate: "7h ago"),
         .init(newsId: "Binance Market Update", newsDate: "14h ago"),
         .init(newsId: "Binance Market Update", newsDate: "2d ago")
     ]
+    
     let coinModels: [Coin] = [
         .init(name: "Bitcoin", price: 21188.04, icon: .btcIcn),
         .init(name: "Litecoin", price: 68.06, icon: .ltcIcn),
