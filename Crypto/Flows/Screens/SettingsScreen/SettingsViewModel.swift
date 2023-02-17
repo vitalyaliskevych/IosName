@@ -13,12 +13,12 @@ class SettingsViewModel: ObservableObject {
     @Published var isOn = false
     
     enum Result {
-        case navigationToMainScreen
+        case onNavigateBack
     }
     
     var onResult: ((Result) -> Void)?
     
     func onBackPressed() {
-        onResult?(.navigationToMainScreen)
+        onResult?(.onNavigateBack)
     }
 }

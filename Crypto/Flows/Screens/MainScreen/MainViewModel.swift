@@ -10,18 +10,18 @@ import Foundation
 class MainViewModel: ObservableObject {
     
     enum Result {
-        case navigationToSettingsScreen
-        case navigationToDetailScreen(coinName: Coin)
+        case onSettingsSelected
+        case onCoinItemSelected(coinName: Coin)
     }
     
     var onResult: ((Result) -> Void)?
     
-    func navigationToSettinsScreen() {
-        onResult?(.navigationToSettingsScreen)
+    func selectSettings() {
+        onResult?(.onSettingsSelected)
     }
     
-    func navigationToDetailScreen(coinName: Coin) {
-        onResult?(.navigationToDetailScreen(coinName: coinName))
+    func selectCoinItem(coinName: Coin) {
+        onResult?(.onCoinItemSelected(coinName: coinName))
     }
     
     let coinModels: [Coin] = [

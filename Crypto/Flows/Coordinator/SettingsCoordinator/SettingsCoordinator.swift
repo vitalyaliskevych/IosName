@@ -10,7 +10,7 @@ import Foundation
 class SettingsCoordinator: ObservableObject {
     
     enum Result {
-        case navigationToMainScreen
+        case onNavigateBack
     }
     
     var onResult: ((Result) -> Void)?
@@ -20,8 +20,8 @@ class SettingsCoordinator: ObservableObject {
         self.settingsViewModel = settingsViewModel
         settingsViewModel.onResult = { [weak self] result in
             switch result {
-            case .navigationToMainScreen:
-                self?.onResult?(.navigationToMainScreen)
+            case .onNavigateBack:
+                self?.onResult?(.onNavigateBack)
             }
         }
     }

@@ -10,7 +10,7 @@ import Foundation
 class DetailCoordinator: ObservableObject {
     
     enum Result {
-        case navigationToMainScreen
+        case onNavigateBack
     }
     
     var onResult: ((Result) -> Void)?
@@ -20,8 +20,8 @@ class DetailCoordinator: ObservableObject {
         self.detailViewModel = detailViewModel
         detailViewModel.onResult = { [weak self] result in
             switch result {
-            case .navigationToMainScreen:
-                self?.onResult?(.navigationToMainScreen)
+            case .onNavigateBack:
+                self?.onResult?(.onNavigateBack)
             }
         }
     }

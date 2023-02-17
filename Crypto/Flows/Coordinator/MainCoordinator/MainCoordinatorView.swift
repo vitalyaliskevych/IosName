@@ -18,7 +18,7 @@ struct MainCoordinatorView: View {
                 MainView(viewModel: coordinator.mainViewModel)
                 NavigationLink(
                     unwrapping: $coordinator.route,
-                    case: /MainCoordinator.Route.navigationToSettingsScreen,
+                    case: /MainCoordinator.Route.onSettingsSelected,
                     destination: {(coordinator: Binding<SettingsCoordinator>) in
                         SettingsCoordinatorView(
                             coordinator: coordinator.wrappedValue).navigationBarBackButtonHidden(true)
@@ -26,7 +26,7 @@ struct MainCoordinatorView: View {
                 
                 NavigationLink(
                     unwrapping: $coordinator.route,
-                    case: /MainCoordinator.Route.navigationToDetailScreen,
+                    case: /MainCoordinator.Route.onCoinItemSelected,
                     destination: {(coordinator: Binding<DetailCoordinator>) in
                         DetailCoordinatorView(
                             coordinator: coordinator.wrappedValue).navigationBarBackButtonHidden(true)

@@ -45,7 +45,7 @@ private extension MainView {
                     createButton(
                         coinModel: coinModel,
                         action: {
-                            viewModel.navigationToDetailScreen(
+                            viewModel.selectCoinItem(
                                 coinName: coinModel
                             )
                         }
@@ -65,7 +65,7 @@ private extension MainView {
         HStack {
             Spacer()
             Button(action: {
-                viewModel.navigationToSettinsScreen()
+                viewModel.selectSettings()
             }) {
                 HStack {
                     Image.stgIcn

@@ -10,7 +10,7 @@ import Foundation
 class DetailViewModel: ObservableObject {
     
     enum Result {
-        case navigationToMainScreen
+        case onNavigateBack
     }
     
     var onResult: ((Result) -> Void)?
@@ -34,6 +34,6 @@ class DetailViewModel: ObservableObject {
     }
     
     func onBackPresed() {
-        onResult?(.navigationToMainScreen)
+        onResult?(.onNavigateBack)
     }
 }
