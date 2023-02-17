@@ -8,6 +8,22 @@
 import Foundation
 
 class MainViewModel: ObservableObject {
+    
+    enum Result {
+        case onSettingsSelected
+        case onCoinItemSelected(coinName: Coin)
+    }
+    
+    var onResult: ((Result) -> Void)?
+    
+    func selectSettings() {
+        onResult?(.onSettingsSelected)
+    }
+    
+    func selectCoinItem(coinName: Coin) {
+        onResult?(.onCoinItemSelected(coinName: coinName))
+    }
+    
     let coinModels: [Coin] = [
         .init(name: "Bitcoin", price: 21188.04, icon: .btcIcn),
         .init(name: "Litecoin", price: 68.06, icon: .ltcIcn),

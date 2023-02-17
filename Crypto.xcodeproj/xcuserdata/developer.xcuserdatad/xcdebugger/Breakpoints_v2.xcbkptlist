@@ -7,17 +7,17 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "795DD4C8-F9EF-4175-A3BA-7BE8B4B28722"
-            shouldBeEnabled = "No"
+            uuid = "3F91A9B8-BD13-442D-8986-1FFE36CE7ECD"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Crypto/Flows/Screens/MainScreen/MainView.swift"
+            filePath = "Crypto/Flows/Coordinator/MainCoordinator/MainCoordinator.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "77"
-            endingLineNumber = "77"
-            landmarkName = "createButton(coinModel:)"
-            landmarkType = "7">
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "navigationToDetailScreen(coinName:)"
+            landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

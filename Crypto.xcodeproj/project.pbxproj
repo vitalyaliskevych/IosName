@@ -17,6 +17,13 @@
 		8B9F2749299A8E5500F55339 /* PriceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9F2748299A8E5500F55339 /* PriceInfo.swift */; };
 		8B9F274B299A8EDD00F55339 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9F274A299A8EDD00F55339 /* Array.swift */; };
 		8B9F274E299A900400F55339 /* PriceInfiViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9F274D299A900400F55339 /* PriceInfiViewModel.swift */; };
+		8B9F2751299CFF7000F55339 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9F2750299CFF7000F55339 /* MainCoordinator.swift */; };
+		8B9F2754299D010100F55339 /* MainCoordinatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9F2753299D010100F55339 /* MainCoordinatorView.swift */; };
+		8B9F2759299D053E00F55339 /* SwiftUINavigation in Frameworks */ = {isa = PBXBuildFile; productRef = 8B9F2758299D053E00F55339 /* SwiftUINavigation */; };
+		8B9F275C299D3D5600F55339 /* SettingsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9F275B299D3D5600F55339 /* SettingsCoordinator.swift */; };
+		8B9F275E299D3D6800F55339 /* SettingsCoordinatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9F275D299D3D6800F55339 /* SettingsCoordinatorView.swift */; };
+		8B9F2761299D4C3C00F55339 /* DetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9F2760299D4C3C00F55339 /* DetailCoordinator.swift */; };
+		8B9F2763299D4C5000F55339 /* DetailCoordinatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9F2762299D4C5000F55339 /* DetailCoordinatorView.swift */; };
 		8BF853DE297AC1550054D4DA /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF853DD297AC1550054D4DA /* DetailViewModel.swift */; };
 		8BF853E0297AC16B0054D4DA /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF853DF297AC16B0054D4DA /* DetailView.swift */; };
 		8BF853E2297ECB330054D4DA /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF853E1297ECB330054D4DA /* SettingsViewModel.swift */; };
@@ -65,6 +72,13 @@
 		8B9F2748299A8E5500F55339 /* PriceInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceInfo.swift; sourceTree = "<group>"; };
 		8B9F274A299A8EDD00F55339 /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		8B9F274D299A900400F55339 /* PriceInfiViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceInfiViewModel.swift; sourceTree = "<group>"; };
+		8B9F2750299CFF7000F55339 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		8B9F2753299D010100F55339 /* MainCoordinatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinatorView.swift; sourceTree = "<group>"; };
+		8B9F2757299D04FF00F55339 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		8B9F275B299D3D5600F55339 /* SettingsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinator.swift; sourceTree = "<group>"; };
+		8B9F275D299D3D6800F55339 /* SettingsCoordinatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCoordinatorView.swift; sourceTree = "<group>"; };
+		8B9F2760299D4C3C00F55339 /* DetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCoordinator.swift; sourceTree = "<group>"; };
+		8B9F2762299D4C5000F55339 /* DetailCoordinatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCoordinatorView.swift; sourceTree = "<group>"; };
 		8BF853DD297AC1550054D4DA /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		8BF853DF297AC16B0054D4DA /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		8BF853E1297ECB330054D4DA /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
@@ -93,6 +107,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B9F2759299D053E00F55339 /* SwiftUINavigation in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,6 +166,50 @@
 			path = GraphScreen;
 			sourceTree = "<group>";
 		};
+		8B9F274F299CFF4100F55339 /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				8B9F275F299D4C2300F55339 /* DetailCoordinator */,
+				8B9F275A299D3D3A00F55339 /* SettingsCoordinator */,
+				8B9F2752299D00AE00F55339 /* MainCoordinator */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		8B9F2752299D00AE00F55339 /* MainCoordinator */ = {
+			isa = PBXGroup;
+			children = (
+				8B9F2750299CFF7000F55339 /* MainCoordinator.swift */,
+				8B9F2753299D010100F55339 /* MainCoordinatorView.swift */,
+			);
+			path = MainCoordinator;
+			sourceTree = "<group>";
+		};
+		8B9F2755299D036000F55339 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8B9F275A299D3D3A00F55339 /* SettingsCoordinator */ = {
+			isa = PBXGroup;
+			children = (
+				8B9F275B299D3D5600F55339 /* SettingsCoordinator.swift */,
+				8B9F275D299D3D6800F55339 /* SettingsCoordinatorView.swift */,
+			);
+			path = SettingsCoordinator;
+			sourceTree = "<group>";
+		};
+		8B9F275F299D4C2300F55339 /* DetailCoordinator */ = {
+			isa = PBXGroup;
+			children = (
+				8B9F2760299D4C3C00F55339 /* DetailCoordinator.swift */,
+				8B9F2762299D4C5000F55339 /* DetailCoordinatorView.swift */,
+			);
+			path = DetailCoordinator;
+			sourceTree = "<group>";
+		};
 		8BF853DA297AC07B0054D4DA /* DetailScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -167,6 +226,7 @@
 				8BFC24692922A8E60070F4A0 /* CryptoTests */,
 				8BFC24732922A8E60070F4A0 /* CryptoUITests */,
 				8BFC24572922A8E30070F4A0 /* Products */,
+				8B9F2755299D036000F55339 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -183,6 +243,7 @@
 		8BFC24582922A8E30070F4A0 /* Crypto */ = {
 			isa = PBXGroup;
 			children = (
+				8B9F2757299D04FF00F55339 /* Info.plist */,
 				8BFC245F2922A8E50070F4A0 /* Preview Content */,
 				8BFC24892922B1ED0070F4A0 /* Resources */,
 				8BFC24882922B1CF0070F4A0 /* Extentions */,
@@ -229,6 +290,7 @@
 		8BFC24842922B1580070F4A0 /* Flows */ = {
 			isa = PBXGroup;
 			children = (
+				8B9F274F299CFF4100F55339 /* Coordinator */,
 				8BFC24852922B1670070F4A0 /* Screens */,
 			);
 			path = Flows;
@@ -302,6 +364,9 @@
 			dependencies = (
 			);
 			name = Crypto;
+			packageProductDependencies = (
+				8B9F2758299D053E00F55339 /* SwiftUINavigation */,
+			);
 			productName = Crypto;
 			productReference = 8BFC24562922A8E30070F4A0 /* Crypto.app */;
 			productType = "com.apple.product-type.application";
@@ -374,6 +439,9 @@
 				Base,
 			);
 			mainGroup = 8BFC244D2922A8E30070F4A0;
+			packageReferences = (
+				8B9F2756299D03DF00F55339 /* XCRemoteSwiftPackageReference "swiftui-navigation" */,
+			);
 			productRefGroup = 8BFC24572922A8E30070F4A0 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -417,23 +485,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B9F275C299D3D5600F55339 /* SettingsCoordinator.swift in Sources */,
 				8B9F273F29951DB500F55339 /* Double.swift in Sources */,
 				8BFC24CF292654E70070F4A0 /* MainViewModel.swift in Sources */,
+				8B9F2761299D4C3C00F55339 /* DetailCoordinator.swift in Sources */,
 				8B9F2749299A8E5500F55339 /* PriceInfo.swift in Sources */,
 				8BF853ED29816D500054D4DA /* Bundle.swift in Sources */,
 				8B9F2747299A8DB100F55339 /* GraphViewModel.swift in Sources */,
 				8BF853E9298153370054D4DA /* String.swift in Sources */,
 				8B51E9652938EAF100D91E1E /* SettingsView.swift in Sources */,
 				8BFC245C2922A8E30070F4A0 /* IntroView.swift in Sources */,
+				8B9F2754299D010100F55339 /* MainCoordinatorView.swift in Sources */,
+				8B9F2751299CFF7000F55339 /* MainCoordinator.swift in Sources */,
 				8BFC24CD292654D60070F4A0 /* MainView.swift in Sources */,
 				8B9F274B299A8EDD00F55339 /* Array.swift in Sources */,
 				8B51E971294B6E8200D91E1E /* News.swift in Sources */,
 				8BFC24C62922CA620070F4A0 /* Colors.swift in Sources */,
+				8B9F2763299D4C5000F55339 /* DetailCoordinatorView.swift in Sources */,
 				8BFC248E2922B5460070F4A0 /* Images.swift in Sources */,
 				8BF853DE297AC1550054D4DA /* DetailViewModel.swift in Sources */,
 				8B9F2745299A8D9500F55339 /* GraphView.swift in Sources */,
 				8BFC248C2922B3A10070F4A0 /* IntroViewModel.swift in Sources */,
 				8B4CDA09296F31EA000437FB /* Toolbar.swift in Sources */,
+				8B9F275E299D3D6800F55339 /* SettingsCoordinatorView.swift in Sources */,
 				8B51E96D294A23A000D91E1E /* Coin.swift in Sources */,
 				8BFC245A2922A8E30070F4A0 /* CryptoApp.swift in Sources */,
 				8BF853E2297ECB330054D4DA /* SettingsViewModel.swift in Sources */,
@@ -611,6 +685,7 @@
 				DEVELOPMENT_TEAM = Y3R7A5H37C;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Crypto/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -640,6 +715,7 @@
 				DEVELOPMENT_TEAM = Y3R7A5H37C;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Crypto/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -774,6 +850,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8B9F2756299D03DF00F55339 /* XCRemoteSwiftPackageReference "swiftui-navigation" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swiftui-navigation";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8B9F2758299D053E00F55339 /* SwiftUINavigation */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8B9F2756299D03DF00F55339 /* XCRemoteSwiftPackageReference "swiftui-navigation" */;
+			productName = SwiftUINavigation;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 8BFC244E2922A8E30070F4A0 /* Project object */;
 }
