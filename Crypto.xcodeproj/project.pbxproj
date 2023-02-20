@@ -11,6 +11,8 @@
 		8B51E9652938EAF100D91E1E /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B51E9642938EAF100D91E1E /* SettingsView.swift */; };
 		8B51E96D294A23A000D91E1E /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B51E96C294A23A000D91E1E /* Coin.swift */; };
 		8B51E971294B6E8200D91E1E /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B51E970294B6E8200D91E1E /* News.swift */; };
+		8B6D444429A3534F009CD140 /* IntroCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6D444329A3534F009CD140 /* IntroCoordinator.swift */; };
+		8B6D444629A35692009CD140 /* IntroCoordinatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6D444529A35692009CD140 /* IntroCoordinatorView.swift */; };
 		8B9F273F29951DB500F55339 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9F273E29951DB500F55339 /* Double.swift */; };
 		8B9F2745299A8D9500F55339 /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9F2744299A8D9500F55339 /* GraphView.swift */; };
 		8B9F2747299A8DB100F55339 /* GraphViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9F2746299A8DB100F55339 /* GraphViewModel.swift */; };
@@ -66,6 +68,8 @@
 		8B51E9642938EAF100D91E1E /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		8B51E96C294A23A000D91E1E /* Coin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
 		8B51E970294B6E8200D91E1E /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
+		8B6D444329A3534F009CD140 /* IntroCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroCoordinator.swift; sourceTree = "<group>"; };
+		8B6D444529A35692009CD140 /* IntroCoordinatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroCoordinatorView.swift; sourceTree = "<group>"; };
 		8B9F273E29951DB500F55339 /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
 		8B9F2744299A8D9500F55339 /* GraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
 		8B9F2746299A8DB100F55339 /* GraphViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphViewModel.swift; sourceTree = "<group>"; };
@@ -156,6 +160,15 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		8B6D444029A036F8009CD140 /* IntroCoordinator */ = {
+			isa = PBXGroup;
+			children = (
+				8B6D444329A3534F009CD140 /* IntroCoordinator.swift */,
+				8B6D444529A35692009CD140 /* IntroCoordinatorView.swift */,
+			);
+			path = IntroCoordinator;
+			sourceTree = "<group>";
+		};
 		8B9F2743299A8D6A00F55339 /* GraphScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -169,6 +182,7 @@
 		8B9F274F299CFF4100F55339 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
+				8B6D444029A036F8009CD140 /* IntroCoordinator */,
 				8B9F275F299D4C2300F55339 /* DetailCoordinator */,
 				8B9F275A299D3D3A00F55339 /* SettingsCoordinator */,
 				8B9F2752299D00AE00F55339 /* MainCoordinator */,
@@ -493,6 +507,7 @@
 				8BF853ED29816D500054D4DA /* Bundle.swift in Sources */,
 				8B9F2747299A8DB100F55339 /* GraphViewModel.swift in Sources */,
 				8BF853E9298153370054D4DA /* String.swift in Sources */,
+				8B6D444629A35692009CD140 /* IntroCoordinatorView.swift in Sources */,
 				8B51E9652938EAF100D91E1E /* SettingsView.swift in Sources */,
 				8BFC245C2922A8E30070F4A0 /* IntroView.swift in Sources */,
 				8B9F2754299D010100F55339 /* MainCoordinatorView.swift in Sources */,
@@ -510,6 +525,7 @@
 				8B9F275E299D3D6800F55339 /* SettingsCoordinatorView.swift in Sources */,
 				8B51E96D294A23A000D91E1E /* Coin.swift in Sources */,
 				8BFC245A2922A8E30070F4A0 /* CryptoApp.swift in Sources */,
+				8B6D444429A3534F009CD140 /* IntroCoordinator.swift in Sources */,
 				8BF853E2297ECB330054D4DA /* SettingsViewModel.swift in Sources */,
 				8B9F274E299A900400F55339 /* PriceInfiViewModel.swift in Sources */,
 				8BF853E0297AC16B0054D4DA /* DetailView.swift in Sources */,
