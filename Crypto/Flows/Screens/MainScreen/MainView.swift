@@ -10,22 +10,15 @@ import SwiftUI
 struct MainView: View {
     @ObservedObject var viewModel : MainViewModel
     var body: some View {
-        NavigationView {
-            ZStack {
                 VStack {
-                    Spacer()
                     ScrollView {
                         coinList
                             .listRowBackground(Color.mainColor)
                     }
-                    .scrollContentBackground(.hidden)
                     settingsBlock
-                    Spacer()
                 }
                 .background(Color.mainColor)
-                .createToolbarMainView(text: "Crypto")
-            }
-        }
+                .createToolbarMainView(text: "Crypto").navigationBarBackButtonHidden(true)
         
     }
     

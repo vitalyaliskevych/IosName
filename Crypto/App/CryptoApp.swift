@@ -11,7 +11,9 @@ import SwiftUI
 struct CryptoApp: App {
     var body: some Scene {
         WindowGroup {
-            IntroCoordinatorView(coordinator: IntroCoordinator(introViewModel: IntroViewModel()))
+            NavigationView {
+                AppCoordinatorView(coordinator: .init(userDefaults: UserDefaultsManager(), introViewModel: IntroViewModel(userDefaultsManager: UserDefaultsManager()), mainCoordinator: MainCoordinator(mainViewModel: MainViewModel()))).navigationBarHidden(true)
+            }
         }
     }
 }

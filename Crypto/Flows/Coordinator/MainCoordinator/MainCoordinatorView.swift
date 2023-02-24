@@ -15,14 +15,15 @@ struct MainCoordinatorView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                MainView(viewModel: coordinator.mainViewModel)
+                MainView(viewModel: coordinator.mainViewModel).navigationBarBackButtonHidden(true);
                 NavigationLink(
                     unwrapping: $coordinator.route,
                     case: /MainCoordinator.Route.onSettingsSelected,
-                    destination: {(coordinator: Binding<SettingsCoordinator>) in
+                    destination: {coordinator in
                         SettingsCoordinatorView(
                             coordinator: coordinator.wrappedValue).navigationBarBackButtonHidden(true)
-                    }, onNavigate: {_ in}) {}
+                    }, onNavigate: {_ in}
+                ) {}
                 
                 NavigationLink(
                     unwrapping: $coordinator.route,
@@ -30,7 +31,8 @@ struct MainCoordinatorView: View {
                     destination: {(coordinator: Binding<DetailCoordinator>) in
                         DetailCoordinatorView(
                             coordinator: coordinator.wrappedValue).navigationBarBackButtonHidden(true)
-                    }, onNavigate: {_ in}) {}
+                    }, onNavigate: {_ in}
+                ) {}
             }
         }
     }

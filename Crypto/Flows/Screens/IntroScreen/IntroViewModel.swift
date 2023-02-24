@@ -11,16 +11,22 @@ import SwiftUI
 class IntroViewModel: ObservableObject {
     
     enum Result {
-        case onMainSelected(coinModels: Coin)
+        case onMainSelected
     }
     
-    @Published var animation = false
-    @Published var animationButton = false
+    @Published var titleIsShown = false
+    @Published var buttonIsShown = false
     
     var onResult: ((Result) -> Void)?
     var coin = Coin(name: "", price: 1.2, icon: Image.btcIcn)
+    var userDefaultsManager: UserDefaultsManager
     
-    func selectMainView(coinModels: Coin) {
-        onResult?(.onMainSelected(coinModels: coinModels))
+    init(userDefaultsManager: UserDefaultsManager) {
+        self.userDefaultsManager = userDefaultsManager
+    }
+    
+    func onStartButtonPressed() {
+        onResult?(.onMainSelected)
+        userDefaultsManager.isIntroCompleted = true
     }
 }
