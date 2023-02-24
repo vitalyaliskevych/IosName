@@ -11,6 +11,9 @@
 		8B51E9652938EAF100D91E1E /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B51E9642938EAF100D91E1E /* SettingsView.swift */; };
 		8B51E96D294A23A000D91E1E /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B51E96C294A23A000D91E1E /* Coin.swift */; };
 		8B51E971294B6E8200D91E1E /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B51E970294B6E8200D91E1E /* News.swift */; };
+		8B6D444A29A67728009CD140 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6D444929A67728009CD140 /* AppCoordinator.swift */; };
+		8B6D444C29A67B52009CD140 /* AppCoordinatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6D444B29A67B52009CD140 /* AppCoordinatorView.swift */; };
+		8B6D444F29A8D472009CD140 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6D444E29A8D472009CD140 /* UserDefaultsManager.swift */; };
 		8B9F273F29951DB500F55339 /* Double.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9F273E29951DB500F55339 /* Double.swift */; };
 		8B9F2745299A8D9500F55339 /* GraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9F2744299A8D9500F55339 /* GraphView.swift */; };
 		8B9F2747299A8DB100F55339 /* GraphViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9F2746299A8DB100F55339 /* GraphViewModel.swift */; };
@@ -66,6 +69,9 @@
 		8B51E9642938EAF100D91E1E /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		8B51E96C294A23A000D91E1E /* Coin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
 		8B51E970294B6E8200D91E1E /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
+		8B6D444929A67728009CD140 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		8B6D444B29A67B52009CD140 /* AppCoordinatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinatorView.swift; sourceTree = "<group>"; };
+		8B6D444E29A8D472009CD140 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		8B9F273E29951DB500F55339 /* Double.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Double.swift; sourceTree = "<group>"; };
 		8B9F2744299A8D9500F55339 /* GraphView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphView.swift; sourceTree = "<group>"; };
 		8B9F2746299A8DB100F55339 /* GraphViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphViewModel.swift; sourceTree = "<group>"; };
@@ -156,6 +162,23 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		8B6D444729A676D7009CD140 /* AppCoordinator */ = {
+			isa = PBXGroup;
+			children = (
+				8B6D444929A67728009CD140 /* AppCoordinator.swift */,
+				8B6D444B29A67B52009CD140 /* AppCoordinatorView.swift */,
+			);
+			path = AppCoordinator;
+			sourceTree = "<group>";
+		};
+		8B6D444D29A8D42F009CD140 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				8B6D444E29A8D472009CD140 /* UserDefaultsManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
 		8B9F2743299A8D6A00F55339 /* GraphScreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -169,6 +192,7 @@
 		8B9F274F299CFF4100F55339 /* Coordinator */ = {
 			isa = PBXGroup;
 			children = (
+				8B6D444729A676D7009CD140 /* AppCoordinator */,
 				8B9F275F299D4C2300F55339 /* DetailCoordinator */,
 				8B9F275A299D3D3A00F55339 /* SettingsCoordinator */,
 				8B9F2752299D00AE00F55339 /* MainCoordinator */,
@@ -243,6 +267,7 @@
 		8BFC24582922A8E30070F4A0 /* Crypto */ = {
 			isa = PBXGroup;
 			children = (
+				8B6D444D29A8D42F009CD140 /* Managers */,
 				8B9F2757299D04FF00F55339 /* Info.plist */,
 				8BFC245F2922A8E50070F4A0 /* Preview Content */,
 				8BFC24892922B1ED0070F4A0 /* Resources */,
@@ -489,7 +514,9 @@
 				8B9F273F29951DB500F55339 /* Double.swift in Sources */,
 				8BFC24CF292654E70070F4A0 /* MainViewModel.swift in Sources */,
 				8B9F2761299D4C3C00F55339 /* DetailCoordinator.swift in Sources */,
+				8B6D444A29A67728009CD140 /* AppCoordinator.swift in Sources */,
 				8B9F2749299A8E5500F55339 /* PriceInfo.swift in Sources */,
+				8B6D444F29A8D472009CD140 /* UserDefaultsManager.swift in Sources */,
 				8BF853ED29816D500054D4DA /* Bundle.swift in Sources */,
 				8B9F2747299A8DB100F55339 /* GraphViewModel.swift in Sources */,
 				8BF853E9298153370054D4DA /* String.swift in Sources */,
@@ -502,6 +529,7 @@
 				8B51E971294B6E8200D91E1E /* News.swift in Sources */,
 				8BFC24C62922CA620070F4A0 /* Colors.swift in Sources */,
 				8B9F2763299D4C5000F55339 /* DetailCoordinatorView.swift in Sources */,
+				8B6D444C29A67B52009CD140 /* AppCoordinatorView.swift in Sources */,
 				8BFC248E2922B5460070F4A0 /* Images.swift in Sources */,
 				8BF853DE297AC1550054D4DA /* DetailViewModel.swift in Sources */,
 				8B9F2745299A8D9500F55339 /* GraphView.swift in Sources */,
