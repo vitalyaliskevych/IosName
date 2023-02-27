@@ -64,10 +64,11 @@ private extension MainLoadingView {
                         ShimmerView()
                             .frame(width: 30, height: 30)
                             .cornerRadius(.infinity)
-                        ShimmerView()
                         Spacer()
                         Text("")
+                        ShimmerView()
                             .frame(height: 30)
+                            .cornerRadius(.infinity)
                     }
                     .cornerRadius(15)
                     .padding([.leading,.trailing], 20)

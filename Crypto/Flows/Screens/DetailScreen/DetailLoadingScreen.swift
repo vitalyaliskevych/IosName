@@ -33,7 +33,6 @@ private extension DetailLoadingView {
         HStack {
             ShimmerView()
             .frame(width: 85, height: 40)
-            .background(Color.gray)
             .cornerRadius(15)
             .padding(.leading, 20)
             Spacer()
