@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct MainLoadingView: View {
+    
     @ObservedObject var viewModel : MainViewModel
+    
     var body: some View {
         VStack {
             ScrollView {
@@ -29,53 +31,53 @@ private extension MainLoadingView {
             VStack(spacing: 10) {
                 ForEach(viewModel.coins, id: \.id) { coins in
                     createButton()
-                        }
-                    .background(Color.bottomButtonColor)
-                    .cornerRadius(15)
-                    .padding([.leading,.trailing], 20)
+                }
+                .background(Color.bottomButtonColor)
+                .cornerRadius(15)
+                .padding([.leading,.trailing], 20)
             } .onAppear() {
                 viewModel.onAppear()
             }
-                .padding(.bottom, 15)
-            }
+            .padding(.bottom, 15)
         }
     }
-    
-    var settingsBlock: some View {
-        HStack {
-            Spacer()
-            Button(action: {}) {
-                HStack {
-                    Image.stgIcn
-                }
-                .foregroundColor(Color.white)
-                .frame(width: 70, height: 70)
-                .background(Color.bottomButtonColor)
-                .cornerRadius(15)
+}
+
+var settingsBlock: some View {
+    HStack {
+        Spacer()
+        Button(action: {}) {
+            HStack {
+                Image.stgIcn
             }
-            .padding([.bottom, .trailing], 15)
+            .foregroundColor(Color.white)
+            .frame(width: 70, height: 70)
+            .background(Color.bottomButtonColor)
+            .cornerRadius(15)
         }
+        .padding([.bottom, .trailing], 15)
     }
-    
-    func createButton() -> some View {
-            VStack {
-                Button(action: {}) {
-                    HStack {
-                        ShimmerView()
-                            .frame(width: 30, height: 30)
-                            .cornerRadius(.infinity)
-                        Spacer()
-                        Text("")
-                        ShimmerView()
-                            .frame(height: 30)
-                            .cornerRadius(.infinity)
-                    }
-                    .cornerRadius(15)
-                    .padding([.leading,.trailing], 20)
-                }
-                .frame(height: 70)
+}
+
+func createButton() -> some View {
+    VStack {
+        Button(action: {}) {
+            HStack {
+                ShimmerView()
+                    .frame(width: 30, height: 30)
+                    .cornerRadius(.infinity)
+                Spacer()
+                Text("")
+                ShimmerView()
+                    .frame(height: 30)
+                    .cornerRadius(.infinity)
             }
+            .cornerRadius(15)
+            .padding([.leading,.trailing], 20)
+        }
+        .frame(height: 70)
     }
+}
 
 
 struct MainLoadingView_Previews: PreviewProvider {

@@ -12,12 +12,14 @@ extension View {
     
     func createMainButton(text: String, action: (() -> Void)?) -> some View {
         VStack {
-            Button(action: {action?()}) {
+            Button(action: {
+                action?()}
+            ){
                 Text(text)
                     .font(.system( size: 18, weight: .bold))
                     .foregroundColor(.white)
                     .padding(.leading, 20)
-                    }
+            }
             .frame(width: 330, height: 70)
             .background(Color.bottomButtonColor)
             .cornerRadius(15)

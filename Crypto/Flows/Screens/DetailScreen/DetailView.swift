@@ -18,7 +18,7 @@ struct DetailScreenView: View {
                     .ignoresSafeArea()
                 ScrollView {
                     VStack {
-                        GraphView(viewModel: .init(coinInfo: coinInfo))
+                        GraphView(viewModel: GraphViewModel(coinInfo: CoinService()))
                         detailView
                     }
                 }

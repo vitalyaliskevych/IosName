@@ -20,4 +20,14 @@ class CoinService: ObservableObject {
             .init(name: "Ethereum", price: 1651, icon: .ethIcn),
         ]
     }
+    
+    func getCoinInfo() -> [PriceInfo] {
+        return [
+           PriceInfo(price: 90.4, day: "01.11"),
+           PriceInfo(price: 81.0, day: "02.11"),
+           PriceInfo(price: 96.4, day: "03.11"),
+           PriceInfo(price: 66.4, day: "04.11"),
+           PriceInfo(price: 96.4, day: "05.11")
+       ]
+    }
 }

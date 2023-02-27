@@ -12,7 +12,8 @@ struct AppCoordinatorView: View {
                 case .onIntroSelected:
                     IntroView(viewModel: coordinator.introViewModel)
                 case .onMainSelected:
-                    MainCoordinatorView(coordinator: coordinator.mainCoordinator).navigationBarTitleDisplayMode(.inline)
+                    MainCoordinatorView(coordinator: coordinator.mainCoordinator)
+                        .navigationBarTitleDisplayMode(.inline)
                 case .none:
                     EmptyView()
                 }

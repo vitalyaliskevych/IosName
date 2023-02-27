@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct DetailErorScreen: View {
+struct ErrorView: View {
     var body: some View {
         ZStack {
             Color.mainColor
@@ -19,7 +19,7 @@ struct DetailErorScreen: View {
     }
 }
 
-private extension DetailErorScreen {
+private extension ErrorView {
     
     var detailEror: some View {
         VStack(spacing: 20) {
@@ -56,6 +56,6 @@ private extension DetailErorScreen {
 
 struct DetailErorScreen_Previews: PreviewProvider {
     static var previews: some View {
-        DetailErorScreen()
+        ErrorView()
     }
 }

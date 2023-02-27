@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8B014ABE29A8F98C005AE626 /* DetailErorScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B014ABD29A8F98C005AE626 /* DetailErorScreen.swift */; };
+		8B014ABE29A8F98C005AE626 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B014ABD29A8F98C005AE626 /* ErrorView.swift */; };
 		8B014AC029A8FC0F005AE626 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B014ABF29A8FC0F005AE626 /* Button.swift */; };
 		8B014AC229A90C2A005AE626 /* DetailLoadingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B014AC129A90C2A005AE626 /* DetailLoadingScreen.swift */; };
 		8B014AC429A90F22005AE626 /* ShimmerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B014AC329A90F22005AE626 /* ShimmerView.swift */; };
@@ -72,7 +72,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		8B014ABD29A8F98C005AE626 /* DetailErorScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailErorScreen.swift; sourceTree = "<group>"; };
+		8B014ABD29A8F98C005AE626 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		8B014ABF29A8FC0F005AE626 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		8B014AC129A90C2A005AE626 /* DetailLoadingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailLoadingScreen.swift; sourceTree = "<group>"; };
 		8B014AC329A90F22005AE626 /* ShimmerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimmerView.swift; sourceTree = "<group>"; };
@@ -155,6 +155,15 @@
 				8B014ACB29ABEB76005AE626 /* NewsService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		8B014ACD29ACF488005AE626 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				8B014ABD29A8F98C005AE626 /* ErrorView.swift */,
+				8B014AC329A90F22005AE626 /* ShimmerView.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		8B51E9662938EB0200D91E1E /* MainScreen */ = {
@@ -263,7 +272,6 @@
 			children = (
 				8BF853DD297AC1550054D4DA /* DetailViewModel.swift */,
 				8BF853DF297AC16B0054D4DA /* DetailView.swift */,
-				8B014ABD29A8F98C005AE626 /* DetailErorScreen.swift */,
 				8B014AC129A90C2A005AE626 /* DetailLoadingScreen.swift */,
 			);
 			path = DetailScreen;
@@ -293,6 +301,7 @@
 		8BFC24582922A8E30070F4A0 /* Crypto */ = {
 			isa = PBXGroup;
 			children = (
+				8B014ACD29ACF488005AE626 /* Components */,
 				8B014AC729AA86AC005AE626 /* Services */,
 				8B6D444D29A8D42F009CD140 /* Managers */,
 				8B9F2757299D04FF00F55339 /* Info.plist */,
@@ -388,7 +397,6 @@
 			children = (
 				8BF853E7298057600054D4DA /* Localizable.strings */,
 				8BFC245D2922A8E50070F4A0 /* Assets.xcassets */,
-				8B014AC329A90F22005AE626 /* ShimmerView.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -573,7 +581,7 @@
 				8B014AC229A90C2A005AE626 /* DetailLoadingScreen.swift in Sources */,
 				8B51E96D294A23A000D91E1E /* Coin.swift in Sources */,
 				8BFC245A2922A8E30070F4A0 /* CryptoApp.swift in Sources */,
-				8B014ABE29A8F98C005AE626 /* DetailErorScreen.swift in Sources */,
+				8B014ABE29A8F98C005AE626 /* ErrorView.swift in Sources */,
 				8BF853E2297ECB330054D4DA /* SettingsViewModel.swift in Sources */,
 				8B9F274E299A900400F55339 /* PriceInfiViewModel.swift in Sources */,
 				8BF853E0297AC16B0054D4DA /* DetailView.swift in Sources */,
