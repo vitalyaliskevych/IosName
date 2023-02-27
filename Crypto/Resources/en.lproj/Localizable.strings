@@ -12,3 +12,5 @@
 "version" = "Version";
 "news" = "News";
 "buy" = "Buy %@";
+"error" = "Seems like error occurred on our side";
+"try" = "Tap button below to try again";

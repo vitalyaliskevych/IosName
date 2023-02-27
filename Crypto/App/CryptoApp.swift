@@ -12,7 +12,8 @@ struct CryptoApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationView {
-                AppCoordinatorView(coordinator: .init(userDefaults: UserDefaultsManager(), introViewModel: IntroViewModel(userDefaultsManager: UserDefaultsManager()), mainCoordinator: MainCoordinator(mainViewModel: MainViewModel()))).navigationBarHidden(true)
+                AppCoordinatorView(coordinator: .init(userDefaults: UserDefaultsManager(), introViewModel: IntroViewModel(userDefaultsManager: UserDefaultsManager()), mainCoordinator: MainCoordinator(mainViewModel: MainViewModel(coinService: CoinService())))).navigationBarTitleDisplayMode(.inline)
+//                MainLoadingView(viewModel: .init())
             }
         }
     }

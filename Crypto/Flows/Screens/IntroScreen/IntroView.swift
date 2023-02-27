@@ -25,18 +25,12 @@ struct IntroView: View {
     }
 }
 
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        IntroView(viewModel: .init(userDefaultsManager: UserDefaultsManager()))
-    }
-}
-
 private extension IntroView {
     var topText: some View {
         VStack(spacing: 10) {
-            welcome
-            welcome2
+            mainText
+            secondText
+            Spacer()
         }
         .padding(.top, 50)
         .opacity(viewModel.titleIsShown ? 1.0 : 0.0)
@@ -47,14 +41,15 @@ private extension IntroView {
                 }
             }
         }
-
     }
-    var welcome: some View {
+    
+    var mainText: some View {
         Text("Welcome")
             .foregroundColor(Color.white)
             .font(.system( size: 40, weight: .bold))
     }
-    var welcome2: some View {
+    
+    var secondText: some View {
         Text("To the Crypto")
             .foregroundColor(Color.white)
             .font(.system( size: 30, weight: .bold))
@@ -66,12 +61,11 @@ private extension IntroView {
                 viewModel.onStartButtonPressed()
             }
         ){
-                Text("Let's start")
-                    .foregroundColor(Color.white)
-                    .frame(width: 330, height: 70)
-                    .font(.system( size: 18, weight: .bold))
-
-        }
+            Text("Let's start")
+                .foregroundColor(Color.white)
+                .frame(width: 330, height: 70)
+                .font(.system( size: 18, weight: .bold))
+            }
         .background(Color.bottomButtonColor)
         .cornerRadius(15)
         .padding(.bottom, 10)
@@ -83,5 +77,11 @@ private extension IntroView {
                 }
             }
         }
+    }
+}
+
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        IntroView(viewModel: .init(userDefaultsManager: UserDefaultsManager()))
     }
 }

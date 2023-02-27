@@ -16,11 +16,11 @@ struct DetailScreenView: View {
             ZStack {
                 Color.mainColor.opacity(0.9)
                     .ignoresSafeArea()
-                VStack {
-                    ScrollView {
-                        main
+                ScrollView {
+                    VStack {
+                        GraphView(viewModel: .init(coinInfo: coinInfo))
+                        detailView
                     }
-                    createBuyCoinButton(text: "buy".localizedWithVars(vars: viewModel.coinName.name), action: {})
                 }
                 .createToolBarDetailView(
                     text: String(viewModel.coinName.name),
@@ -34,6 +34,14 @@ struct DetailScreenView: View {
 }
 
 private extension DetailScreenView {
+    var detailView: some View {
+        VStack {
+            main
+            Spacer()
+                createMainButton(text: "buy".localizedWithVars(vars: viewModel.coinName.name), action: {})
+        }
+    }
+    
     var main: some View {
         VStack(spacing: 15) {
             coinPrice
@@ -66,9 +74,11 @@ private extension DetailScreenView {
                     .padding()
                 Spacer()
             }
-            ForEach(viewModel.newsModels, id: \.id) { newsModel in
-                createNewsRow(newsModel: newsModel)
+            ForEach(viewModel.news, id: \.id) { news in
+                createNewsRow(newsModel: news)
             }
+        } .onAppear() {
+            viewModel.onAppear()
         }
     }
     
@@ -93,20 +103,6 @@ private extension DetailScreenView {
         .padding(.top, 20)
     }
     
-    func createBuyCoinButton(text: String, action: (() -> Void)?) -> some View {
-        VStack {
-            Button(action: {action?()}) {
-                Text(text)
-                    .font(.system( size: 18, weight: .bold))
-                    .foregroundColor(.white)
-                    .padding()
-            }
-            .frame(width: 330)
-            .background(Color.bottomButtonColor)
-            .cornerRadius(15)
-        }
-    }
-    
     var createDivider: some View {
         Divider()
             .frame( width: UIScreen.main.bounds.width / 1.1, height: 1)
@@ -116,6 +112,6 @@ private extension DetailScreenView {
 
 struct DetailScreenView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailScreenView(viewModel: DetailViewModel(coinName: .init(name: "Bitcoin", price: 1651.64, icon: Image.btcIcn)))
+        DetailScreenView(viewModel: .init(coinName: Coin(name: "Bitcoin", price: 1651.64, icon: Image.btcIcn), newsService: NewsService()))
     }
 }
