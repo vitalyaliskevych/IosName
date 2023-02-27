@@ -8,24 +8,19 @@
 import SwiftUI
 
 struct MainView: View {
-    @ObservedObject var viewModel : MainViewModel
-    var body: some View {
-                VStack {
-                    ScrollView {
-                        coinList
-                            .listRowBackground(Color.mainColor)
-                    }
-                    settingsBlock
-                }
-                .background(Color.mainColor)
-                .createToolbarMainView(text: "Crypto").navigationBarBackButtonHidden(true)
-        
-    }
     
-    struct MainView_Previews: PreviewProvider {
-        static var previews: some View {
-            MainView(viewModel: .init())
+    @ObservedObject var viewModel : MainViewModel
+    
+    var body: some View {
+        VStack {
+            ScrollView {
+                coinList
+                    .listRowBackground(Color.mainColor)
+            }
+            settingsBlock
         }
+        .background(Color.mainColor)
+        .createToolbarMainView(text: "Crypto").navigationBarTitleDisplayMode(.inline)
     }
 }
 
@@ -34,23 +29,23 @@ private extension MainView {
     var coinList: some View {
         VStack {
             VStack(spacing: 10) {
-                ForEach(viewModel.coinModels, id: \.id) { coinModel in
+                ForEach(viewModel.coins, id: \.id) { coins in
                     createButton(
-                        coinModel: coinModel,
+                        coins: coins,
                         action: {
                             viewModel.selectCoinItem(
-                                coinName: coinModel
+                                coinName: coins
                             )
                         }
                     )
-                        .background(Color.bottomButtonColor)
-                        .cornerRadius(15)
-                        .padding([.leading,.trailing], 20)
+                    .background(Color.bottomButtonColor)
+                    .cornerRadius(15)
+                    .padding([.leading,.trailing], 20)
                 }
                 .padding(.bottom, 15)
+            }.onAppear() {
+                viewModel.onAppear()
             }
-            Spacer()
-    
         }
     }
     
@@ -67,43 +62,43 @@ private extension MainView {
                 .frame(width: 70, height: 70)
                 .background(Color.bottomButtonColor)
                 .cornerRadius(15)
-                }
+            }
             .padding([.bottom, .trailing], 15)
         }
     }
     
-    func createButton(coinModel: Coin, action: (() -> Void)?) -> some View {
+    func createButton(coins: Coin, action: (() -> Void)?) -> some View {
         VStack {
-            VStack {
-                Button(action: {
-                    action?()
-                }) {
-                    HStack {
-                        coinModel.icon
-                            .resizable()
-                            .foregroundColor(Color.white)
-                            .frame(width: 30, height: 30)
-                        Text(coinModel.name)
-                            .font(.system( size: 18, weight: .bold))
-                            
-                            .foregroundColor(Color.white)
-                            .padding()
-                        Spacer()
-                        Text("$" + String(format:"%.2f", coinModel.price))
-                            .frame(height: 30)
-                            .font(.system(size: 16, weight: .medium))
-                            .background(Color.mainColor.opacity(0.8))
-                            .cornerRadius(10)
-                            .foregroundColor(.white)
-                        }
-                    .cornerRadius(15)
-                    .padding([.leading,.trailing], 20)
-                    
+            Button(action: {
+                action?()
+            }) {
+                HStack {
+                    coins.icon
+                        .resizable()
+                        .foregroundColor(Color.white)
+                        .frame(width: 30, height: 30)
+                    Text(coins.name)
+                        .font(.system( size: 18, weight: .bold))
+                        .foregroundColor(Color.white)
+                        .padding()
+                    Spacer()
+                    Text("$" + String(format:"%.2f", coins.price))
+                        .frame(height: 30)
+                        .font(.system(size: 16, weight: .medium))
+                        .background(Color.mainColor.opacity(0.8))
+                        .cornerRadius(10)
+                        .foregroundColor(.white)
                 }
-                .frame(height: 70)
+                .cornerRadius(15)
+                .padding([.leading,.trailing], 20)
             }
+            .frame(height: 70)
         }
     }
 }
 
-
+struct MainView_Previews: PreviewProvider {
+    static var previews: some View {
+        MainView(viewModel: .init(coinService: CoinService()))
+    }
+}

@@ -14,12 +14,12 @@ class GraphViewModel: ObservableObject {
     let fullBarHeight: Double = 250
     @Published var priceInfoViewModels: [PriceInfoViewModel] = []
 
-    init(coinInfo: [PriceInfo]) {
-        priceInfoViewModels = coinInfo.enumerated().map { (index, priceInfo) in
+    init(coinInfo: CoinService) {
+        priceInfoViewModels = coinInfo.getCoinInfo().enumerated().map { (index, priceInfo) in
             return PriceInfoViewModel (
                 price: priceInfo.price,
                 day: priceInfo.day,
-                color: coinInfo.getColor(index: index)
+                color: coinInfo.getCoinInfo().getColor(index: index)
             )
         }
     }

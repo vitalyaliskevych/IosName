@@ -12,13 +12,12 @@ struct AppCoordinatorView: View {
                 case .onIntroSelected:
                     IntroView(viewModel: coordinator.introViewModel)
                 case .onMainSelected:
-                    MainCoordinatorView(coordinator: coordinator.mainCoordinator).navigationBarBackButtonHidden(true)
+                    MainCoordinatorView(coordinator: coordinator.mainCoordinator)
+                        .navigationBarTitleDisplayMode(.inline)
                 case .none:
                     EmptyView()
                 }
             }
-            .navigationBarBackButtonHidden(true)
-        }
-        .navigationBarBackButtonHidden(true)
+        }.navigationBarTitleDisplayMode(.inline)
     }
 }

@@ -24,4 +24,7 @@ extension Image {
     static var stgIcn: Image {
         Image("StgIcn")
     }
+    static var warningImg: Image {
+        Image("Warning")
+    }
 }

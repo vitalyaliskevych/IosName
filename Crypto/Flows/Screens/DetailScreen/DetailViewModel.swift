@@ -13,27 +13,25 @@ class DetailViewModel: ObservableObject {
         case onNavigateBack
     }
     
+    @Published var detailsNews = [News]()
+    @Published var customError = false
+    @Published var isLoading = true
+    @Published var news: [News] = []
+    
     var onResult: ((Result) -> Void)?
     var coinName: Coin
-    let newsModels: [News] = [
-        .init(newsId: "Binance Market Update", newsDate: "7h ago"),
-        .init(newsId: "Binance Market Update", newsDate: "14h ago"),
-        .init(newsId: "Binance Market Update", newsDate: "2d ago")
-    ]
-    let coinModels: [Coin] = [
-        .init(name: "Bitcoin", price: 21188.04, icon: .btcIcn),
-        .init(name: "Litecoin", price: 68.06, icon: .ltcIcn),
-        .init(name: "Ethereum", price: 1651.64, icon: .ethIcn),
-        .init(name: "Bitcoin", price: 21188, icon: .btcIcn),
-        .init(name: "Litecoin", price: 68.06, icon: .ltcIcn),
-        .init(name: "Ethereum", price: 1651, icon: .ethIcn),
-    ]
+    var newsService: NewsService
     
-    init(coinName: Coin) {
+    init(coinName: Coin, newsService: NewsService) {
         self.coinName = coinName
+        self.newsService = newsService
     }
     
     func onBackPresed() {
         onResult?(.onNavigateBack)
+    }
+    
+    func onAppear() {
+        self.news = newsService.getNews()
     }
 }

@@ -32,7 +32,9 @@ class MainCoordinator: ObservableObject {
     }
     
     func selectSettings() {
-        let settingsCoordinator = SettingsCoordinator(settingsViewModel: SettingsViewModel())
+        let settingsCoordinator = SettingsCoordinator(
+            settingsViewModel: SettingsViewModel()
+        )
         settingsCoordinator.onResult = { result in
             switch result {
             case .onNavigateBack:
@@ -49,7 +51,8 @@ class MainCoordinator: ObservableObject {
                     name: coinName.name,
                     price: 21188,
                     icon: Image.btcIcn
-                )
+                ),
+                newsService: NewsService()
             )
         )
         detailCoordinator.onResult = { result in
