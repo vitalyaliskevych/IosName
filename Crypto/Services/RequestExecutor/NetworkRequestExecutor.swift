@@ -7,7 +7,6 @@
 
 import Foundation
 import Combine
-import CryptoKit
 
 class NetworkRequestExecutor {
     private let baseUrl = "https://crypto2211.000webhostapp.com"
@@ -20,8 +19,11 @@ class NetworkRequestExecutor {
         
         return request
     }
+}
+
+extension NetworkRequestExecutor {
     
-    func performRequest<T: Codable>(path: String, method: HTTPMethod) ->AnyPublisher<T, Error> {
+    func performRequest<T: Codable>(path: String, method: HTTPMethod) -> AnyPublisher<T, Error> {
         
         guard let url = URL(string: baseUrl + path) else {
             return Fail(error: RuntimeError("Wrong URL was provided"))
