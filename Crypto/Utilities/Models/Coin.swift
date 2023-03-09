@@ -7,10 +7,16 @@
 
 import SwiftUI
 
-struct Coin: Identifiable {
-    var id = UUID()
-    let name: String
-    let price: Double
-    let icon: Image
+struct Coins {
+    let coins: [Coin]
+    struct Coin: Identifiable {
+        
+        let id: String
+        let name: String
+        let price: Double
+        let imageURL: String
+    }
 }
+
+
 

@@ -19,10 +19,10 @@ class DetailViewModel: ObservableObject {
     @Published var news: [News] = []
     
     var onResult: ((Result) -> Void)?
-    var coinName: Coin
+    var coinName: Coins.Coin
     var newsService: NewsService
     
-    init(coinName: Coin, newsService: NewsService) {
+    init(coinName: Coins.Coin, newsService: NewsService) {
         self.coinName = coinName
         self.newsService = newsService
     }

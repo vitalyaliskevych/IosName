@@ -7,27 +7,43 @@
 
 import Foundation
 import SwiftUI
+import Combine
 
-class CoinService: ObservableObject {
+protocol CoinService {
+    func getCoins() -> AnyPublisher<Coins, Error>
+}
+
+final class CoinServiceImpl: CoinService {
     
-    func getCoins() -> [Coin] {
-        return [
-            .init(name: "Bitcoin", price: 21188.04, icon: .btcIcn),
-            .init(name: "Litecoin", price: 68.06, icon: .ltcIcn),
-            .init(name: "Ethereum", price: 1651.64, icon: .ethIcn),
-            .init(name: "Bitcoin", price: 21188, icon: .btcIcn),
-            .init(name: "Litecoin", price: 68.06, icon: .ltcIcn),
-            .init(name: "Ethereum", price: 1651, icon: .ethIcn),
-        ]
+    let executor: NetworkRequestExecutor
+    
+    init(executor: NetworkRequestExecutor) {
+        self.executor = executor
+    }
+    
+    func getCoins() -> AnyPublisher<Coins, Error> {
+        func request() -> AnyPublisher<CoinsDTO, Error> {
+            return executor
+                .performRequest(
+                    path: "/getCoins.php",
+                    method: .get
+                )
+        }
+        
+        return request()
+            .map { coinsDTO in
+                coinsDTO.toDomainModel()
+            }
+            .eraseToAnyPublisher()
     }
     
     func getCoinInfo() -> [PriceInfo] {
         return [
-           PriceInfo(price: 90.4, day: "01.11"),
-           PriceInfo(price: 81.0, day: "02.11"),
-           PriceInfo(price: 96.4, day: "03.11"),
-           PriceInfo(price: 66.4, day: "04.11"),
-           PriceInfo(price: 96.4, day: "05.11")
-       ]
+            PriceInfo(price: 90.4, day: "01.11"),
+            PriceInfo(price: 81.0, day: "02.11"),
+            PriceInfo(price: 96.4, day: "03.11"),
+            PriceInfo(price: 66.4, day: "04.11"),
+            PriceInfo(price: 96.4, day: "05.11")
+        ]
     }
 }

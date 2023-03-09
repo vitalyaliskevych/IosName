@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct GraphView: View {
-    
+
     @ObservedObject var viewModel: GraphViewModel
-    
+
     var body: some View {
         ZStack {
             VStack(alignment: .center, spacing: 10) {
@@ -48,8 +48,16 @@ private extension GraphView {
     }
 }
 
+let coinInfo: [PriceInfo] = [
+    PriceInfo(price: 90.4, day: "01.11"),
+    PriceInfo(price: 81.0, day: "02.11"),
+    PriceInfo(price: 96.4, day: "03.11"),
+    PriceInfo(price: 66.4, day: "04.11"),
+    PriceInfo(price: 96.4, day: "05.11")
+]
+
 struct GraphView_Previews: PreviewProvider {
     static var previews: some View {
-        GraphView(viewModel: GraphViewModel(coinInfo: CoinService()))
+        GraphView(viewModel: GraphViewModel(coinInfo: .init()))
     }
 }

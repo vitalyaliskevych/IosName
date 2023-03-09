@@ -18,7 +18,7 @@ struct DetailScreenView: View {
                     .ignoresSafeArea()
                 ScrollView {
                     VStack {
-                        GraphView(viewModel: GraphViewModel(coinInfo: CoinService()))
+                        GraphView(viewModel: .init(coinInfo: coinInfo))
                         detailView
                     }
                 }
@@ -112,6 +112,6 @@ private extension DetailScreenView {
 
 struct DetailScreenView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailScreenView(viewModel: .init(coinName: Coin(name: "Bitcoin", price: 1651.64, icon: Image.btcIcn), newsService: NewsService()))
+        DetailScreenView(viewModel: DetailViewModel(coinName: Coins.Coin(id: "", name: "", price: 1, imageURL: ""), newsService: NewsService()))
     }
 }

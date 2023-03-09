@@ -17,16 +17,17 @@ class MainCoordinator: ObservableObject {
     
     @Published var route: Route?
     
-    var mainViewModel: MainViewModel
+    var mainViewModel: MainViewModelImpl
     
-    init(mainViewModel: MainViewModel) {
+    
+    init(mainViewModel: MainViewModelImpl) {
         self.mainViewModel = mainViewModel
         mainViewModel.onResult = { [weak self] result in
             switch result {
             case .onSettingsSelected:
                 self?.selectSettings()
             case .onCoinItemSelected(let coinName):
-                self?.selectCoin(coinName: coinName)
+                self?.selectCoin(coins: coinName)
             }
         }
     }
@@ -44,15 +45,10 @@ class MainCoordinator: ObservableObject {
         route = .onSettingsSelected(coordinator: settingsCoordinator)
     }
     
-    func selectCoin(coinName: Coin) {
+    func selectCoin(coins: Coins.Coin) {
         let detailCoordinator = DetailCoordinator(
             detailViewModel: DetailViewModel(
-                coinName: Coin(
-                    name: coinName.name,
-                    price: 21188,
-                    icon: Image.btcIcn
-                ),
-                newsService: NewsService()
+                coinName: coins, newsService: NewsService()
             )
         )
         detailCoordinator.onResult = { result in

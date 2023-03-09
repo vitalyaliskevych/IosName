@@ -9,18 +9,24 @@ import SwiftUI
 
 struct MainView: View {
     
-    @ObservedObject var viewModel : MainViewModel
+    @ObservedObject var viewModel : MainViewModelImpl
     
     var body: some View {
-        VStack {
-            ScrollView {
-                coinList
-                    .listRowBackground(Color.mainColor)
+        if viewModel.loading {
+            MainLoadingView(viewModel: MainViewModel())
+        } else {
+            VStack {
+                ScrollView {
+                    coinList
+                        .listRowBackground(Color.mainColor)
+                }
+                settingsBlock
+            }.onAppear() {
+                viewModel.onButtonTapped()
             }
-            settingsBlock
+            .background(Color.mainColor)
+            .createToolbarMainView(text: "Crypto").navigationBarTitleDisplayMode(.inline)
         }
-        .background(Color.mainColor)
-        .createToolbarMainView(text: "Crypto").navigationBarTitleDisplayMode(.inline)
     }
 }
 
@@ -29,7 +35,7 @@ private extension MainView {
     var coinList: some View {
         VStack {
             VStack(spacing: 10) {
-                ForEach(viewModel.coins, id: \.id) { coins in
+                ForEach(viewModel.coins) { coins in
                     createButton(
                         coins: coins,
                         action: {
@@ -43,8 +49,6 @@ private extension MainView {
                     .padding([.leading,.trailing], 20)
                 }
                 .padding(.bottom, 15)
-            }.onAppear() {
-                viewModel.onAppear()
             }
         }
     }
@@ -67,16 +71,17 @@ private extension MainView {
         }
     }
     
-    func createButton(coins: Coin, action: (() -> Void)?) -> some View {
+    func createButton(coins: Coins.Coin, action: (() -> Void)?) -> some View {
         VStack {
             Button(action: {
                 action?()
             }) {
                 HStack {
-                    coins.icon
-                        .resizable()
-                        .foregroundColor(Color.white)
-                        .frame(width: 30, height: 30)
+                    AsyncImage(url: URL(string: coins.imageURL)) { image in
+                        image.image?.resizable()
+                    }
+                    .foregroundColor(Color.white)
+                    .frame(width: 30, height: 30)
                     Text(coins.name)
                         .font(.system( size: 18, weight: .bold))
                         .foregroundColor(Color.white)
@@ -84,6 +89,7 @@ private extension MainView {
                     Spacer()
                     Text("$" + String(format:"%.2f", coins.price))
                         .frame(height: 30)
+                        .padding(.horizontal, 10)
                         .font(.system(size: 16, weight: .medium))
                         .background(Color.mainColor.opacity(0.8))
                         .cornerRadius(10)
@@ -99,6 +105,6 @@ private extension MainView {
 
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
-        MainView(viewModel: .init(coinService: CoinService()))
+        MainView(viewModel: MainViewModelImpl(coinService: CoinServiceImpl(executor: NetworkRequestExecutor())))
     }
 }
