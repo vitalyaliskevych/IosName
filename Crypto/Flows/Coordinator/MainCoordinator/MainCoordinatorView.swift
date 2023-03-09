@@ -15,7 +15,7 @@ struct MainCoordinatorView: View {
     var body: some View {
         NavigationView {
             ZStack {
-                MainView(viewModel: coordinator.mainViewModel).navigationBarBackButtonHidden(true);
+                MainView(viewModel: coordinator.mainViewModel).navigationBarBackButtonHidden(true)
                 NavigationLink(
                     unwrapping: $coordinator.route,
                     case: /MainCoordinator.Route.onSettingsSelected,

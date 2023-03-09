@@ -9,23 +9,25 @@ import SwiftUI
 
 struct MainView: View {
     
-    @ObservedObject var viewModel : MainViewModelImpl
+    @ObservedObject var viewModel = MainViewModelImpl(coinService: CoinServiceImpl(executor: NetworkRequestExecutor()))
     
     var body: some View {
-        if viewModel.loading {
-            MainLoadingView(viewModel: MainViewModel())
-        } else {
-            VStack {
-                ScrollView {
-                    coinList
-                        .listRowBackground(Color.mainColor)
+        ZStack {
+            if viewModel.loading {
+                MainLoadingView()
+            } else {
+                VStack {
+                    ScrollView {
+                        coinList
+                            .listRowBackground(Color.mainColor)
+                    }
+                    settingsBlock
                 }
-                settingsBlock
-            }.onAppear() {
-                viewModel.onButtonTapped()
+                .background(Color.mainColor)
+                .createToolbarMainView(text: "Crypto").navigationBarTitleDisplayMode(.inline)
             }
-            .background(Color.mainColor)
-            .createToolbarMainView(text: "Crypto").navigationBarTitleDisplayMode(.inline)
+        }.onAppear() {
+            viewModel.getCoins()
         }
     }
 }

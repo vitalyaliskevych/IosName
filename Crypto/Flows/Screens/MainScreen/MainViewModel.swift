@@ -18,7 +18,7 @@ class MainViewModel: ObservableObject {
     
     @Published var coins = [Coins.Coin]()
     @Published var output = String()
-    @Published var loading = true
+    @Published var loading = false
     
     var onResult: ((Result) -> Void)?
     
@@ -42,16 +42,18 @@ class MainViewModelImpl: MainViewModel {
         self.coinService = coinService
     }
     
-    func onButtonTapped() {
+    func getCoins() {
+        self.loading = true
         coinService
             .getCoins()
             .sink { [weak self] completion in
                 guard case .failure(let error) = completion else { return }
                 self?.output = error.localizedDescription
+                self?.loading = false
             } receiveValue: { [weak self] coinsValue in
                 self?.coins = coinsValue.coins
+                self?.loading = false
             }
             .store(in: &cancellables)
     }
 }
-
