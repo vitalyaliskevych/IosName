@@ -10,6 +10,7 @@ import SwiftUI
 import Combine
 
 protocol CoinService {
+    
     func getCoins() -> AnyPublisher<Coins, Error>
 }
 

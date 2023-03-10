@@ -12,7 +12,21 @@ struct CryptoApp: App {
     var body: some Scene {
         WindowGroup {
             NavigationView {
-                AppCoordinatorView(coordinator: .init(userDefaults: UserDefaultsManager(), introViewModel: IntroViewModel(userDefaultsManager: UserDefaultsManager()), mainCoordinator: MainCoordinator(mainViewModel: MainViewModelImpl(coinService: CoinServiceImpl(executor: NetworkRequestExecutor()))))).navigationBarTitleDisplayMode(.inline)
+                AppCoordinatorView(
+                    coordinator: .init(
+                        userDefaults: UserDefaultsManager(),
+                        introViewModel: IntroViewModel(
+                            userDefaultsManager: UserDefaultsManager())
+                        , mainCoordinator: MainCoordinator(
+                            mainViewModel: MainViewModelImpl(
+                                coinService: CoinServiceImpl(
+                                    executor: NetworkRequestExecutor()
+                                )
+                            )
+                        )
+                    )
+                )
+                .navigationBarTitleDisplayMode(.inline)
             }
         }
     }

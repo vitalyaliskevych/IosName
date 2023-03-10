@@ -38,7 +38,7 @@ private extension DetailScreenView {
         VStack {
             main
             Spacer()
-                createMainButton(text: "buy".localizedWithVars(vars: viewModel.coinName.name), action: {})
+            createMainButton(text: "buy".localizedWithVars(vars: viewModel.coinName.name), action: {})
         }
     }
     
@@ -112,6 +112,10 @@ private extension DetailScreenView {
 
 struct DetailScreenView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailScreenView(viewModel: DetailViewModel(coinName: Coins.Coin(id: "", name: "", price: 1, imageURL: ""), newsService: NewsService()))
+        DetailScreenView(
+            viewModel: DetailViewModel(
+                coinName: Coins.Coin(
+                    id: "", name: "", price: 1, imageURL: ""),
+                newsService: NewsService()))
     }
 }
