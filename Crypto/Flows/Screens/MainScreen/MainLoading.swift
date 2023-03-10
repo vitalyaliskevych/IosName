@@ -8,19 +8,18 @@
 import SwiftUI
 
 struct MainLoadingView: View {
-    
-    @ObservedObject var viewModel : MainViewModel
-    
     var body: some View {
-        VStack {
-            ScrollView {
-                coinList
-                    .listRowBackground(Color.mainColor)
+        ZStack {
+            VStack {
+                ScrollView {
+                    coinList
+                        .listRowBackground(Color.mainColor)
+                }
+                settingsBlock
             }
-            settingsBlock
+            .background(Color.mainColor)
+            .createToolbarMainView(text: "Crypto").navigationBarTitleDisplayMode(.inline)
         }
-        .background(Color.mainColor)
-        .createToolbarMainView(text: "Crypto").navigationBarTitleDisplayMode(.inline)
     }
 }
 
@@ -29,14 +28,12 @@ private extension MainLoadingView {
     var coinList: some View {
         VStack {
             VStack(spacing: 10) {
-                ForEach(viewModel.coins, id: \.id) { coins in
+                ForEach(0...5, id: \.self) { _ in
                     createButton()
                 }
                 .background(Color.bottomButtonColor)
                 .cornerRadius(15)
                 .padding([.leading,.trailing], 20)
-            } .onAppear() {
-                viewModel.onAppear()
             }
             .padding(.bottom, 15)
         }
@@ -80,8 +77,8 @@ func createButton() -> some View {
 }
 
 
-struct MainLoadingView_Previews: PreviewProvider {
-    static var previews: some View {
-        MainLoadingView(viewModel: MainViewModel(coinService: CoinService()))
-    }
-}
+//struct MainLoadingView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        MainLoadingView(viewModel: .init(coinService: CoinServiceImpl(executor: NetworkRequestExecutor())))
+//    }
+//}

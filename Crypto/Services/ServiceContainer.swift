@@ -12,4 +12,5 @@ class ServiceContainer {
     static let shared = ServiceContainer()
     
     lazy var userService = UserServiceImpl(executor: NetworkRequestExecutor())
+    lazy var coinService = CoinServiceImpl(executor: NetworkRequestExecutor())
 }
