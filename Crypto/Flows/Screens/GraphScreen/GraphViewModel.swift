@@ -9,18 +9,24 @@ import Foundation
 import SwiftUI
 
 class GraphViewModel: ObservableObject {
-
-    let maxValue: Double = 100
-    let fullBarHeight: Double = 250
-    @Published var priceInfoViewModels: [PriceInfoViewModel] = []
-
-    init(coinInfo: [PriceInfo]) {
-        priceInfoViewModels = coinInfo.enumerated().map { (index, priceInfo) in
+    
+    
+    @Published var periodPrices = [Details.PeriodPrices]()
+    
+    var priceInfoViewModels: [PriceInfoViewModel] {
+        periodPrices.enumerated().map { (index, priceInfo) in
             return PriceInfoViewModel (
                 price: priceInfo.price,
-                day: priceInfo.day,
-                color: coinInfo.getColor(index: index)
+                day: priceInfo.date.convertGraph(time: priceInfo.date),
+                color: periodPrices.getColor(index: index)
             )
         }
+    }
+    
+    var fullBarHeight: Double = 250
+    let maxValue: Double = 100
+    
+    init(periodPrices: [Details.PeriodPrices]) {
+        self.periodPrices = periodPrices
     }
 }

@@ -24,7 +24,7 @@ struct MainView: View {
                     settingsBlock
                 }
                 .background(Color.mainColor)
-                .createToolbarMainView(text: "Crypto").navigationBarTitleDisplayMode(.inline)
+                .createToolbarMainView(text: "Crypto")
             }
         }.onAppear() {
             viewModel.getCoins()

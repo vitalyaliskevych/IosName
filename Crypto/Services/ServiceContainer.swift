@@ -13,4 +13,5 @@ class ServiceContainer {
     
     lazy var userService = UserServiceImpl(executor: NetworkRequestExecutor())
     lazy var coinService = CoinServiceImpl(executor: NetworkRequestExecutor())
+    lazy var detailService = DetailServiceImpl(executor: NetworkRequestExecutor())
 }

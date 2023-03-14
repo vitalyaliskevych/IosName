@@ -47,8 +47,8 @@ class MainCoordinator: ObservableObject {
     
     func selectCoin(coins: Coins.Coin) {
         let detailCoordinator = DetailCoordinator(
-            detailViewModel: DetailViewModel(
-                coinName: coins, newsService: NewsService()
+            detailViewModel: DetailViewModelImpl(
+                coins: coins, detailService: DetailServiceImpl(executor: NetworkRequestExecutor())
             )
         )
         detailCoordinator.onResult = { result in
