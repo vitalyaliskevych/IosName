@@ -17,11 +17,11 @@ struct DetailScreenView: View {
                 .ignoresSafeArea()
             ScrollView {
                 VStack {
-                    //                    if viewModel.customError {
-                    //                        ErrorView()
-                    //                    } else {
-                    detailView
-                    //                    }
+                    if viewModel.customError {
+                        ErrorView()
+                    } else {
+                        detailView
+                    }
                 }
             }
             .createToolBarDetailView(
@@ -116,8 +116,6 @@ private extension DetailScreenView {
             .background(Color.gray)
     }
 }
-
-
 
 struct DetailScreenView_Previews: PreviewProvider {
     static var previews: some View {
