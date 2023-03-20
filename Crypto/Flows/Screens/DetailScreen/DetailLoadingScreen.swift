@@ -32,9 +32,9 @@ private extension DetailLoadingView {
     var coinPrice: some View {
         HStack {
             ShimmerView()
-            .frame(width: 85, height: 40)
-            .cornerRadius(15)
-            .padding(.leading, 20)
+                .frame(width: 85, height: 40)
+                .cornerRadius(15)
+                .padding(.leading, 20)
             Spacer()
         }
         .padding()
@@ -85,6 +85,6 @@ private extension DetailLoadingView {
 
 struct DetailLoadingScreenView_Previews: PreviewProvider {
     static var previews: some View {
-       DetailLoadingView()
+        DetailLoadingView()
     }
 }

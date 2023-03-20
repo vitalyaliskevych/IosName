@@ -9,36 +9,45 @@ import SwiftUI
 
 struct DetailScreenView: View {
     
-    @ObservedObject var viewModel: DetailViewModel
+    @ObservedObject var viewModel = DetailViewModelImpl(coins: .init(id: "", name: "", price: 1.1, imageURL: ""), detailService: DetailServiceImpl(executor: NetworkRequestExecutor()))
     
     var body: some View {
-        NavigationView {
-            ZStack {
-                Color.mainColor.opacity(0.9)
-                    .ignoresSafeArea()
-                ScrollView {
-                    VStack {
-                        GraphView(viewModel: .init(coinInfo: coinInfo))
+        ZStack {
+            Color.mainColor.opacity(0.9)
+                .ignoresSafeArea()
+            ScrollView {
+                VStack {
+                    if viewModel.customError {
+                        ErrorView()
+                    } else {
                         detailView
                     }
                 }
-                .createToolBarDetailView(
-                    text: String(viewModel.coinName.name),
-                    dismissAction: {
-                        viewModel.onBackPresed()
-                    }
-                )
             }
+            .createToolBarDetailView(
+                text: String(viewModel.coins.name),
+                dismissAction: {
+                    viewModel.onBackPresed()
+                }
+            )
+        }.onAppear() {
+            viewModel.getDetails()
         }
     }
 }
 
 private extension DetailScreenView {
+    
     var detailView: some View {
         VStack {
-            main
-            Spacer()
-            createMainButton(text: "buy".localizedWithVars(vars: viewModel.coinName.name), action: {})
+            if viewModel.isLoading {
+                DetailLoadingView()
+            } else {
+                GraphView(viewModel: viewModel.graphViewModel);
+                main
+                Spacer()
+                createMainButton(text: "buy".localizedWithVars(vars: viewModel.coins.name), action: {})
+            }
         }
     }
     
@@ -52,7 +61,7 @@ private extension DetailScreenView {
     var coinPrice: some View {
         HStack {
             HStack {
-                Text("$" + (viewModel.coinName.price).toString())
+                Text("$" + (viewModel.coins.price).toString())
                     .font(.system(size: 16))
                     .foregroundColor(.red)
             }
@@ -77,22 +86,20 @@ private extension DetailScreenView {
             ForEach(viewModel.news, id: \.id) { news in
                 createNewsRow(newsModel: news)
             }
-        } .onAppear() {
-            viewModel.onAppear()
         }
     }
     
-    func createNewsRow(newsModel: News) -> some View {
+    func createNewsRow(newsModel: Details.News) -> some View {
         VStack {
             HStack {
-                Text(newsModel.newsId)
+                Text(newsModel.title)
                     .font(.system( size: 20, weight: .bold))
                     .foregroundColor(Color.white)
                     .padding(.leading, 20)
                 Spacer()
             }
             HStack {
-                Text(newsModel.newsDate)
+                Text("\(newsModel.date)".convertCoin(time: newsModel.date))
                     .font(.system( size: 18, weight: .medium))
                     .foregroundColor(Color.gray.opacity(0.8))
                     .padding(.leading, 20)
@@ -113,9 +120,9 @@ private extension DetailScreenView {
 struct DetailScreenView_Previews: PreviewProvider {
     static var previews: some View {
         DetailScreenView(
-            viewModel: DetailViewModel(
-                coinName: Coins.Coin(
+            viewModel: DetailViewModelImpl(
+                coins: Coins.Coin(
                     id: "", name: "", price: 1, imageURL: ""),
-                newsService: NewsService()))
+                detailService: DetailServiceImpl(executor: NetworkRequestExecutor())))
     }
 }

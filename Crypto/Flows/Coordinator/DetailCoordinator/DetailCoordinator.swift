@@ -14,9 +14,9 @@ class DetailCoordinator: ObservableObject {
     }
     
     var onResult: ((Result) -> Void)?
-    var detailViewModel: DetailViewModel
+    var detailViewModel: DetailViewModelImpl
     
-    init(detailViewModel: DetailViewModel) {
+    init(detailViewModel: DetailViewModelImpl) {
         self.detailViewModel = detailViewModel
         detailViewModel.onResult = { [weak self] result in
             switch result {

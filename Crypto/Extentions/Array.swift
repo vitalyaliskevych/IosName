@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-extension Array where Element == PriceInfo {
+extension Array where Element == Details.PeriodPrices {
     func getColor(index: Int) -> Color {
         guard index > 0 else {
             return Color.green

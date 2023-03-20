@@ -29,8 +29,6 @@ class MainViewModel: ObservableObject {
     func selectCoinItem(coinName: Coins.Coin) {
         onResult?(.onCoinItemSelected(coinName: coinName))
     }
-    
-    func onButtonTupped() {}
 }
 
 class MainViewModelImpl: MainViewModel {

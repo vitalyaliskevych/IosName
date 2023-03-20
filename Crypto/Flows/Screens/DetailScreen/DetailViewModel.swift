@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import SwiftUI
+import Combine
 
 class DetailViewModel: ObservableObject {
     
@@ -13,25 +15,53 @@ class DetailViewModel: ObservableObject {
         case onNavigateBack
     }
     
-    @Published var detailsNews = [News]()
+    @Published var periodPrices = [Details.PeriodPrices]()
     @Published var customError = false
-    @Published var isLoading = true
-    @Published var news: [News] = []
+    @Published var output = String()
+    @Published var isLoading = false
+    @Published var news = [Details.News]()
     
     var onResult: ((Result) -> Void)?
-    var coinName: Coins.Coin
-    var newsService: NewsService
+    var coins: Coins.Coin
+    let graphViewModel: GraphViewModel
+    let detailService: DetailService
+    let formatter = DateFormatter()
     
-    init(coinName: Coins.Coin, newsService: NewsService) {
-        self.coinName = coinName
-        self.newsService = newsService
+    init(coins: Coins.Coin, detailService: DetailService) {
+        self.coins = coins
+        self.detailService = detailService
+        self.graphViewModel = GraphViewModel(periodPrices: [])
     }
     
     func onBackPresed() {
         onResult?(.onNavigateBack)
     }
     
-    func onAppear() {
-        self.news = newsService.getNews()
+    func openURL(url: String) {
+          guard let url = URL(string: url) else { return }
+          UIApplication.shared.open(url)
+      }
+}
+
+class DetailViewModelImpl: DetailViewModel {
+    
+    private var cancellables = Set<AnyCancellable>()
+    
+    func getDetails() {
+        self.isLoading = true
+        detailService
+            .getDetails(id: coins.id)
+            .sink { [weak self] completion in
+                guard case .failure(let error) = completion else { return }
+                self?.output = error.localizedDescription
+                self?.isLoading = false
+            } receiveValue: { [weak self] detailValue in
+                self?.news = detailValue.news
+                self?.graphViewModel.periodPrices = detailValue.periodPrices
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    self?.isLoading = false
+                }
+            }
+            .store(in: &cancellables)
     }
 }
