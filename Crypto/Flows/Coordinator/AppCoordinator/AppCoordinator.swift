@@ -19,7 +19,11 @@ class AppCoordinator: ObservableObject {
     var mainCoordinator: MainCoordinator
     var introViewModel: IntroViewModel
     
-    init(userDefaults: UserDefaultsManager, introViewModel: IntroViewModel, mainCoordinator: MainCoordinator) {
+    init(
+        userDefaults: UserDefaultsManager,
+        introViewModel: IntroViewModel,
+        mainCoordinator: MainCoordinator
+    ) {
         self.mainCoordinator = mainCoordinator
         self.introViewModel = introViewModel
         introViewModel.onResult = { [weak self] result in

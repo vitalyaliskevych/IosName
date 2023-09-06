@@ -28,7 +28,7 @@ extension CoinsDTO: DomainModelConvertible {
         }))
     }
 }
-            
+
 extension CoinsDTO.CoinDTO: DomainModelConvertible {
     
     func toDomainModel() -> Coins.Coin {

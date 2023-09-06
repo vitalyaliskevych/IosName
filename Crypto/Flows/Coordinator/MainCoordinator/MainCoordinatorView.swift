@@ -25,7 +25,6 @@ struct MainCoordinatorView: View {
                             coordinator: coordinator.wrappedValue).navigationBarBackButtonHidden(true)
                     }, onNavigate: {_ in}
                 ) {}
-                
                 NavigationLink(
                     unwrapping: $coordinator.route,
                     case: /MainCoordinator.Route.onCoinItemSelected,

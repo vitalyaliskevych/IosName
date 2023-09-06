@@ -65,7 +65,7 @@ private extension IntroView {
                 .foregroundColor(Color.white)
                 .frame(width: 330, height: 70)
                 .font(.system( size: 18, weight: .bold))
-            }
+        }
         .background(Color.bottomButtonColor)
         .cornerRadius(15)
         .padding(.bottom, 10)

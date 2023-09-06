@@ -40,7 +40,7 @@ extension DetailsDTO: DomainModelConvertible {
             }))
     }
 }
-    
+
 extension DetailsDTO.PeriodPricesDTO: DomainModelConvertible {
     
     func toDomainModel() -> Details.PeriodPrices {

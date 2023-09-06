@@ -14,7 +14,9 @@ struct DetailCoordinatorView: View {
 
     var body: some View {
         ZStack {
-            DetailScreenView(viewModel: coordinator.detailViewModel)
+            DetailScreenView(
+                viewModel: coordinator.detailViewModel
+            )
         }
     }
 }

@@ -10,14 +10,19 @@ struct AppCoordinatorView: View {
             ZStack {
                 switch coordinator.route {
                 case .onIntroSelected:
-                    IntroView(viewModel: coordinator.introViewModel)
+                    IntroView(
+                        viewModel: coordinator.introViewModel
+                    )
                 case .onMainSelected:
-                    MainCoordinatorView(coordinator: coordinator.mainCoordinator)
+                    MainCoordinatorView(
+                        coordinator: coordinator.mainCoordinator
+                    )
                         .navigationBarTitleDisplayMode(.inline)
                 case .none:
                     EmptyView()
                 }
             }
-        }.navigationBarTitleDisplayMode(.inline)
+        }
+        .navigationBarTitleDisplayMode(.inline)
     }
 }

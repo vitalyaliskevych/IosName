@@ -18,7 +18,6 @@ class IntroViewModel: ObservableObject {
     @Published var buttonIsShown = false
     
     var onResult: ((Result) -> Void)?
-//    var coin = Coins(coins: Coin())
     var userDefaultsManager: UserDefaultsManager
     
     init(userDefaultsManager: UserDefaultsManager) {

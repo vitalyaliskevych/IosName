@@ -116,13 +116,3 @@ private extension DetailScreenView {
             .background(Color.gray)
     }
 }
-
-struct DetailScreenView_Previews: PreviewProvider {
-    static var previews: some View {
-        DetailScreenView(
-            viewModel: DetailViewModelImpl(
-                coins: Coins.Coin(
-                    id: "", name: "", price: 1, imageURL: ""),
-                detailService: DetailServiceImpl(executor: NetworkRequestExecutor())))
-    }
-}

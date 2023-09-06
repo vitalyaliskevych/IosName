@@ -14,7 +14,9 @@ struct SettingsCoordinatorView: View {
     
     var body: some View {
         ZStack {
-            SettingsView(viewModel: coordinator.settingsViewModel)
+            SettingsView(
+                viewModel: coordinator.settingsViewModel
+            )
         }
     }
 }

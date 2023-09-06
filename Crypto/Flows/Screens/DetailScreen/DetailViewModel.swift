@@ -38,9 +38,9 @@ class DetailViewModel: ObservableObject {
     }
     
     func openURL(url: String) {
-          guard let url = URL(string: url) else { return }
-          UIApplication.shared.open(url)
-      }
+        guard let url = URL(string: url) else { return }
+        UIApplication.shared.open(url)
+    }
 }
 
 class DetailViewModelImpl: DetailViewModel {
